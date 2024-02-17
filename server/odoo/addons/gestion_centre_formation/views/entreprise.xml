@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_entreprise_kanban" model="ir.ui.view">
+        <field name="name">formation.entreprise.kanban</field>
+        <field name="model">formation.entreprise</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard o_hr_recruitment_kanban">
+                <field name="name" />
+             <templates>
+                    <t t-name="kanban-box">
+                        	<div class="oe_kanban_global_click">
+                            <div t-attf-class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary"><t t-esc="record.name.value"  /></div>
+                                     <div class="oe_resource_details">
+							         <ul>
+
+                                     </ul>
+                                    </div>
+
+                               </div>
+
+      <br/>
+  <br/>
+<br/>
+                            </div>
+                            </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+        <record id="view_entreprise_form" model="ir.ui.view">
+            <field name="name">formation.entreprise.form</field>
+            <field name="model">formation.entreprise</field>
+            <field name="arch" type="xml">
+                <form string="entreprise">
+                      <header>
+                </header>
+                    <sheet>
+
+
+                          <center><strong><field name="name" style="color:#DC143C" string="Nom de l'entreprise"/></strong> </center>
+                        <hr/>
+                          <group string="Contact de l'entreprise">
+                            <group col="4">
+                                   <field name="tele" />
+                                   <field name="fax" />
+
+                            </group>
+                          <group col="2">
+                              <field name="email" />
+                              <field name="adresse" />
+
+                         </group>
+                        </group>
+
+                    </sheet>
+                 </form>
+            </field>
+        </record>
+
+        <record id="view_entreprise_tree" model="ir.ui.view">
+            <field name="name">formation.entreprise.tree</field>
+            <field name="model">formation.entreprise</field>
+            <field name="arch" type="xml">
+                <tree string="entreprise">
+                    <field name="id"/>
+                    <field name="name"/>
+                   <field name="tele" />
+                    <field name="fax" />
+                    <field name="email" />
+                    <field name="adresse" />
+                </tree>
+            </field>
+        </record>
+
+
+
+
+        <record id="view_entreprise_filter" model="ir.ui.view">
+            <field name="name">formation.entreprise.search</field>
+            <field name="model">formation.entreprise</field>
+            <field name="arch" type="xml">
+                <search string="entreprise">
+                    <field name="name" string="entreprise"/>
+                 <!--   <filter string="Unread Messages" name="message_needaction" domain="[('message_needaction','=',True)]"/>-->
+                    <separator/>
+                 <!--   <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>-->
+                </search>
+             </field>
+        </record>
+
+
+        <record id="entreprise_view_search_bis" model="ir.ui.view">
+        <field name="name">formation.entreprise.view.search</field>
+        <field name="model">formation.entreprise</field>
+        <field name="arch" type="xml">
+            <search string="Search entreprise">
+                <field string="entreprise" name="name"
+                    filter_domain="['|', '|', ('name', 'ilike', self)]"/>
+<!--               <filter string="My entreprise" name="my_entreprise" domain="[('userfac_id', '=', uid)]"/>-->
+
+                <separator/>
+                <group expand="0" string="Group By">
+<!--                    <filter string="Responsible" name="responsible" domain="[]"  context="{'group_by': 'userfac_id'}"/>-->
+<!--                   <filter string="formation" name="formation" context="{'group_by':'formation_id'}"/>-->
+                </group>
+           </search>
+        </field>
+    </record>
+s
+
+
+        <record id="open_module_entreprise" model="ir.actions.act_window">
+            <field name="name">Départements/Services</field>
+            <field name="res_model">formation.entreprise</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="search_view_id" ref="view_entreprise_filter"/>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Créer une nouvelle entreprise
+              </p>
+            </field>
+        </record>
+
+  <!--département par faculté-->
+
+  <record id="entreprise_action_windows" model="ir.actions.act_window" >
+        <field name="name">entreprise</field>
+        <field name="res_model">formation.entreprise</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="search_view_id" ref="entreprise_view_search_bis"/>
+
+        <field name="help" type="html">
+              <p class="o_view_nocontent_empty_folder">
+                pas d'entreprise encore
+              </p>
+
+         </field>
+    </record>
+
+
+
+
+
+</data>
+</odoo>

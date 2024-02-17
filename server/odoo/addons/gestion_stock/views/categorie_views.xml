@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <!-- base structure of stock.categorie, common with categorie.categorie -->
+    <record id="stock_categorie_form_view" model="ir.ui.view">
+        <field name="name">stock.categorie.form</field>
+        <field name="model">stock.categorie</field>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <form string="Categorie">
+                <sheet name="categorie form">
+                   <field name="id" invisible="True"/>
+                    <div class="oe_title">
+                        <label for="name" string="Nom catégorie"/>
+                         <field name="name"/>
+                    </div>
+
+                 <group string="Internal Notes">
+                                <field name="description" nolabel="1" placeholder="This note is only for internal purposes."/>
+                            </group>
+                    <notebook>
+                        <page string="Produits" name="Prduits">
+                                    <field name="produits"/>
+                        </page>
+                    </notebook>
+
+                </sheet>
+                <div class="oe_chatter">
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="stock_categorie_search_view" model="ir.ui.view">
+        <field name="name">stock.categorie.search</field>
+        <field name="model">stock.categorie</field>
+        <field name="arch" type="xml">
+            <search string="Categorie">
+                <field name="name" string="Categorie" filter_domain="[('name', 'ilike', self)]"/>
+                <separator/>
+                <group expand="1" string="Group By">
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="categorie_action_open" model="ir.actions.act_window">
+        <field name="name">Categorie</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stock.categorie</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new categorie
+            </p>
+        </field>
+    </record>
+
+           <record id="categorie_template_kanban_view" model="ir.ui.view">
+        <field name="name">stock.categorie.kanban</field>
+        <field name="model">stock.categorie</field>
+        <field name="arch" type="xml">
+            <kanban sample="1">
+                <field name="id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <div name="name" class="mt-1" >
+                                     <t t-if="record.name.value"><strong >Ctégorie : </strong><field name="name" /></t>
+                                   </div>
+                                <div name="stock_actuel" class="mt-1" >
+                                     <t t-if="record.stock_actuel.value"><strong >Quantité Disponible : </strong>[<field name="stock_actuel" />]</t>
+                                   </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+ <record id="categorie_template_tree_view" model="ir.ui.view">
+        <field name="name">stock.categorie.tree</field>
+        <field name="model">stock.categorie</field>
+        <field name="arch" type="xml">
+            <tree string="Categorie" multi_edit="1" sample="1">
+                <field name="name" string="categorie Name"/>
+                <field name="stock_actuel" />
+            </tree>
+        </field>
+    </record>
+
+    </data>
+</odoo>

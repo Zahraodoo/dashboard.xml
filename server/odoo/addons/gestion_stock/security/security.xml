@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.module.category" id="module_category_gestion_stock">
+        <field name="name">stock Management</field>
+        <field name="description">Category For gestion stock</field>
+        <field name="sequence">45</field>
+    </record>
+
+     <record id="group_gestion_stock_resp" model="res.groups">
+        <field name="name">responsable</field>
+        <field name="category_id" ref="module_category_gestion_stock"/>
+    </record>
+
+    <record id="group_stock_vente" model="res.groups">
+        <field name="name">Vendeur</field>
+        <field name="category_id" ref="module_category_gestion_stock"/>
+    </record>
+
+
+
+<!--  <record model="ir.rule" id="see_his_own_state">-->
+<!--        <field name="name">See His department Only</field>-->
+<!--        <field name="model_id" ref="model_stage_state"/>-->
+<!--        <field name="domain_force">[('userfac_id','=',user.id)]</field>-->
+<!--        <field name="groups" eval="[(4, ref('group_stage_state'))]"/>-->
+<!--        <field name="perm_create" eval="1"/>-->
+<!--        <field name="perm_write" eval="1"/>-->
+<!--        <field name="perm_unlink" eval="1"/>-->
+<!--        <field name="perm_read" eval="1"/>-->
+<!--    </record>-->
+
+
+
+<!--
+ <record model="ir.rule" id="see_all_faculty">
+        <field name="name">See All faculty</field>
+        <field name="model_id" ref="model_stage_faculty"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_stage_resp_faculty'))]"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+        <field name="perm_read" eval="1"/>
+    </record>
+
+<record model="ir.rule" id="see_all_department">
+        <field name="name">See All department</field>
+        <field name="model_id" ref="model_stage_depart"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_stage_resp_department'))]"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+        <field name="perm_read" eval="1"/>
+    </record>
+
+<record model="ir.rule" id="see_all_state">
+        <field name="name">See All state</field>
+        <field name="model_id" ref="model_stage_stat"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_stage_resp_state'))]"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+        <field name="perm_read" eval="1"/>
+    </record>
+
+-->
+
+
+
+
+</odoo>

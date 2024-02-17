@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_mode_kanban" model="ir.ui.view">
+        <field name="name">formation.mode.kanban</field>
+        <field name="model">formation.mode</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard o_hr_recruitment_kanban"  create="0">
+                <field name="name" />
+             <templates>
+                    <t t-name="kanban-box">
+                        	<div class="oe_kanban_global_click">
+                            <div t-attf-class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary"><t t-esc="record.name.value"  /></div>
+                                     <div class="oe_resource_details">
+							         <ul>
+                                        <field name="name"/>
+
+                                     </ul>
+                                    </div>
+
+                               </div>
+<!--             <div name="application_button" class="col-6 o_kanban_primary_left" align="center" >-->
+
+      <br/>
+  <br/>
+<br/>
+                            </div>
+                            </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+        <record id="view_mode_form" model="ir.ui.view">
+            <field name="name">formation.mode.form</field>
+            <field name="model">formation.mode</field>
+            <field name="arch" type="xml">
+                <form string="mode">
+                      <header>
+                </header>
+                    <sheet>
+
+                          <center><strong><field name="name" style="color:#DC143C"/></strong> </center>
+                    </sheet>
+                 </form>
+            </field>
+        </record>
+
+        <record id="view_mode_tree" model="ir.ui.view">
+            <field name="name">formation.mode.tree</field>
+            <field name="model">formation.mode</field>
+            <field name="arch" type="xml">
+                <tree string="mode" create="0">
+                    <field name="id"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+
+
+
+        <record id="view_mode_filter" model="ir.ui.view">
+            <field name="name">formation.mode.search</field>
+            <field name="model">formation.mode</field>
+            <field name="arch" type="xml">
+                <search string="mode">
+                    <field name="name" string="mode"/>
+                    <separator/>
+                 <!--   <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>-->
+                </search>
+             </field>
+        </record>
+
+
+        <record id="mode_view_search_bis" model="ir.ui.view">
+        <field name="name">formation.mode.view.search</field>
+        <field name="model">formation.mode</field>
+        <field name="arch" type="xml">
+            <search string="Search mode">
+                <field string="mode" name="name"
+                    filter_domain="['|', '|', ('name', 'ilike', self)]"/>
+<!--               <filter string="My mode" name="my_mode" domain="[('userfac_id', '=', uid)]"/>-->
+                <separator/>
+
+                <group expand="0" string="Group By">
+<!--                    <filter string="Responsible" name="responsible" domain="[]"  context="{'group_by': 'userfac_id'}"/>-->
+<!--                   <filter string="Faculty" name="faculty" context="{'group_by':'faculty_id'}"/>-->
+                </group>
+           </search>
+        </field>
+    </record>
+
+
+
+        <record id="open_module_mode" model="ir.actions.act_window">
+            <field name="name">Départements/Services</field>
+            <field name="res_model">formation.mode</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="search_view_id" ref="view_mode_filter"/>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Créer un mode de formation
+              </p>
+            </field>
+        </record>
+
+  <!--département par faculté-->
+
+  <record id="mode_modement_action_windows" model="ir.actions.act_window" >
+        <field name="name">mode</field>
+        <field name="res_model">formation.mode</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="search_view_id" ref="mode_view_search_bis"/>
+        <field name="context"></field>
+        <field name="help" type="html">
+              <p class="o_view_nocontent_empty_folder">
+                pas de mode formation
+              </p>
+
+         </field>
+    </record>
+
+
+
+
+
+</data>
+</odoo>

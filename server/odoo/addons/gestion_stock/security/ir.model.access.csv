@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_stock_categorie_user,stock.categorie.user,model_stock_categorie,,1,1,1,1
+access_stock_commandes_user,stock.commandes.user,model_stock_commandes,,1,1,1,1
+access_stock_details_commande_user,stock.details_commande.user,model_stock_details_commande,,1,1,1,1
+access_stock_fournisseurs_user,stock.fournisseurs.user,model_stock_fournisseurs,,1,1,1,1
+access_stock_mouvements_user,stock.mouvements.user,model_stock_mouvements,,1,1,1,1
+access_stock_produits_user,stock.produits.user,model_stock_produits,,1,1,1,1
+access_stock_vente_user,stock.vente.user,model_stock_vente,,1,1,1,1
+access_stock_achat_user,stock.achat.user,model_stock_achat,,1,1,1,1

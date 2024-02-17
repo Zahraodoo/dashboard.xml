@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <!-- base structure of stock.produits, common with product.product -->
+    <record id="produit_template_form_view" model="ir.ui.view">
+        <field name="name">stock.produits.form</field>
+        <field name="model">stock.produits</field>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <form string="Produits">
+                <header>
+                    <button string="Imprimer Etiquete"/>
+                </header>
+                <sheet name="produit form">
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button"
+                               icon="fa-list-ul">
+                               <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_value">
+                                        <field name="pricelist_item_count"/>
+                                    </span>
+                                    <span attrs="{'invisible': [('pricelist_item_count', '=', 1)]}">
+                                       Produit Vendu
+                                    </span>
+                                    <span attrs="{'invisible': [('pricelist_item_count', '!=', 1)]}">
+                                        Produit Vendu
+                                    </span>
+                               </div>
+                        </button>
+                        <button class="oe_stat_button" icon="fa-list-ul">
+                               <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_value">
+                                        <field name="achat_item_count"/>
+                                    </span>
+                                    <span attrs="{'invisible': [('achat_item_count', '=', 1)]}">
+                                       Produit Acheter
+                                    </span>
+                                    <span attrs="{'invisible': [('achat_item_count', '!=', 1)]}">
+                                        Produit Acheter
+                                    </span>
+                               </div>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                    <field name="id" invisible="True"/>
+                    <field name="image_variant_1920" widget="image" class="oe_avatar" options="{'preview_image': 'image_variant_1920'}"/>
+                    <div class="oe_title">
+                        <label for="name" string="Nom Produit"/>
+                        <h1>
+                            <div class="d-flex">
+                                <field name="priority" widget="priority" class="mr-3"/>
+                                <field class="text-break" name="name" placeholder="e.g. Cheese Burger"/>
+                            </div>
+                        </h1>
+                    </div>
+                    <group>
+                                <group name="group_general">
+                                     <field name="stock_quantity" />
+                                    <field name="active" invisible="1"/>
+                                    <field name="id_categorie"/>
+
+                                </group>
+                                <group name="group_standard_vente">
+                                    <label for="prix_vente" class="mt-1"/>
+                                    <div name="Vente">
+                                      <field name="prix_vente" class="oe_inline" widget='monetary'
+                                        options="{'currency_field': 'currency_id'}"/>
+                                    </div>
+                                    <label for="prix_achat" class="mt-1"/>
+                                    <div name="Achat">
+                                      <field name="prix_achat" class="oe_inline" widget='monetary'
+                                        options="{'currency_field': 'currency_id'}"/>
+                                    </div>
+                                   <field name="currency_id" invisible="1"/>
+                                   <field name="id" invisible="1"/>
+
+                                </group>
+                            </group>
+                    <group>
+                       <group>  <field name="default_code" /> </group>
+                      <group name="Reference">
+                                 <field name="barcode" />
+                                 <field name="code_qr" />
+
+                            </group>
+                    </group>
+                    <style>
+                        div[name="options"] .o_field_boolean {
+                            margin-left: 10px;
+                            margin-right: 0px;
+                        }
+                    </style>
+                    <notebook>
+                        <page string="detail de vente" name="vente" >
+                   <field name="vente_ids" mode="tree,kanban"  >
+                               <tree editable="bottom" mode="tree,kanban"  default_order='name' >
+                                     <field name="name"/>
+                                     <field name="date_vente"/>
+                                     <field name="quantite_vente"/>
+                                     <field name="prix_unitaire"/>
+                                     <field name="user_id"/>
+                                 </tree>
+                            </field>
+                        </page>
+                        <page string="detail d'achat" name="achat" >
+                   <field name="achat_ids" mode="tree,kanban"  >
+                               <tree editable="bottom" mode="tree,kanban"  default_order='name' >
+                                     <field name="name"/>
+                                     <field name="date_achat"/>
+                                     <field name="quantite_acheter"/>
+                                     <field name="prix_unitaire"/>
+                                     <field name="user_id"/>
+                                 </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                    <group string="Internal Notes">
+                                <field name="description" nolabel="1" placeholder="This note is only for internal purposes."/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="produit_template_search_view" model="ir.ui.view">
+        <field name="name">stock.produits.search</field>
+        <field name="model">stock.produits</field>
+        <field name="arch" type="xml">
+            <search string="Produits">
+                <field name="barcode" />
+                <field name="code_qr" />
+                <field name="default_code" />
+                <field name="name" string="Produits" filter_domain="['|', '|', '|', ('default_code', 'ilike', self), ('name', 'ilike', self), ('barcode', 'ilike', self)]"/>
+                <field name="id_categorie" filter_domain="[]"/>
+                <separator/>
+                <filter string="Favorites" name="favorites" domain="[('priority','=','1')]"/>
+                <filter string="barcode" name="barcode" domain="[]"/>
+                <filter string="code_qr" name="code_qr" domain="[]"/>
+                <filter string="default_code" name="default_code" domain="[]"/>
+                <separator/>
+                <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Product Type" name="id_categorie" context="{'group_by':'id_categorie'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="produit_action_open" model="ir.actions.act_window">
+        <field name="name">Produits</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stock.produits</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new product
+            </p>
+        </field>
+    </record>
+
+           <record id="product_template_kanban_view" model="ir.ui.view">
+        <field name="name">stock.produits.kanban</field>
+        <field name="model">stock.produits</field>
+        <field name="arch" type="xml">
+            <kanban sample="1">
+                <field name="id"/>
+                <progressbar field="activity_state" colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <div class="o_kanban_image mr-1">
+                                <img t-att-src="kanban_image('stock.produits', 'image_variant_1920', record.id.raw_value)" alt="Product" class="o_image_64_contain"/>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <div class="o_kanban_record_top mb-0">
+                                    <div class="o_kanban_record_headings">
+                                        <strong class="o_kanban_record_title">
+                                            <field name="name"/>
+                                        </strong>
+                                    </div>
+                                    <field name="priority" widget="priority"/>
+                                </div>
+                                <t t-if="record.default_code.value"> Reference Interne:[<field name="default_code"/>]</t>
+                                <div name="product_lst_price" class="mt-1" style="color: #CC0066;">
+                                 <strong>   Prix de vante: <field name="prix_vente" widget="monetary" options="{'currency_field': 'currency_id'}"></field></strong>
+                                </div>
+                                <div name="stock_quantity" class="mt-1" >
+                                     <t t-if="record.stock_quantity.value"><strong >Quantité Disponible : </strong>[<field name="stock_quantity" />]</t>
+                                   </div>
+                                <div name="product_lst_price" class="mt-1">
+                                    Prix d'achat: <field name="prix_achat" widget="monetary" options="{'currency_field': 'currency_id'}"></field>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+ <record id="product_template_tree_view" model="ir.ui.view">
+        <field name="name">stock.produits.tree</field>
+        <field name="model">stock.produits</field>
+        <field name="arch" type="xml">
+            <tree string="Produits" multi_edit="1" sample="1">
+            <header>
+                <button string="Print Labels" />
+            </header>
+                <field name="priority" widget="priority" optional="show" nolabel="1"/>
+                <field name="name" string="Product Name"/>
+                <field name="id_categorie" />
+                <field name="pricelist_item_count" />
+                <field name="stock_quantity" />
+                <field name="default_code" optional="show"/>
+                <field name="barcode"  />
+                <field name="prix_vente" string="Prix de vente" widget='monetary' options="{'currency_field': 'currency_id'}" optional="show" />
+                <field name="prix_achat" string="Prix achat" widget='monetary' options="{'currency_field': 'currency_id'}" optional="show" />
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    </data>
+</odoo>

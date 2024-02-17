@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <!-- State Tree View -->
+    <record model="ir.ui.view" id="statistique_state_tree">
+        <field name="name">statistique.state.tree</field>
+        <field name="model">statistique.state</field>
+        <field name="arch" type="xml">
+            <tree string="Etapes">
+                <field name="sequence" widget="handle"/>
+                <field name="id"/>
+                <field name="name"/>
+                <field name="fold"/>
+            </tree>
+        </field>
+    </record>
+
+
+
+    <record id="statistique_state_form" model="ir.ui.view">
+        <field name="name">statistique.state.form</field>
+        <field name="model">statistique.state</field>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <form string="Etape">
+                <sheet>
+
+                <group name="statistique_definition" string="Etape Definition">
+                    <group>
+                        <field name="name"/>
+                        <field name="sequence" groups="base.group_no_one"/>
+<!--                        <field name="template_id" domain= "[('model_id.model', '=', 'statistique.demandenseig')]"/>-->
+                    </group>
+                    <group name="statistique_details">
+                        <field name="fold"/>
+
+                    </group>
+                </group>
+                <group name="tooltips" string="Tooltips" invisible="1" >
+                    <p class="text-muted" colspan="2">
+                        You can define here the labels that will be displayed for the kanban state instead
+                        of the default labels.
+                    </p>
+
+                    </group>
+                    <separator string="Requirements"/>
+                    <field name="requirements" nolabel="1" placeholder="Give your team the requirements to move an opportunity to this statistique."/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- State Kanban View -->
+    <record id="view_statistique_state_kanban" model="ir.ui.view">
+        <field name="name">statistique.state.kanban</field>
+        <field name="model">statistique.state</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="fold"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div>
+                                <strong><field name="name"/></strong>
+                            </div>
+                            <div>
+                                <span>Folded in Recruitment Pipe: </span>
+                                <field name="fold" widget="boolean"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="statistique_state_action" model="ir.actions.act_window">
+        <field name="name">Etapes</field>
+        <field name="res_model">statistique.state</field>
+        <field name="view_id" ref="statistique.statistique_state_tree"/>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Set a new statistique
+          </p><p>
+            Stages
+          </p>
+        </field>
+    </record>
+
+
+</odoo>

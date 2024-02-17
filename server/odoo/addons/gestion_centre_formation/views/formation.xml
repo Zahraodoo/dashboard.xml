@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<data>
+	<record id="tree_formation" model="ir.ui.view">
+            <field name="name">formation.formation.tree</field>
+            <field name="model">formation.formation</field>
+            <field name="arch" type="xml">
+                <tree string="Formation">
+					         <field name="name"/>
+                </tree>
+            </field>
+    </record>
+
+
+      <record id="formation_action_windows" model="ir.actions.act_window">
+        <field name="name">Formation</field>
+		<field name="res_model">formation.formation</field>
+		<field name="view_mode">kanban,tree,form</field>
+      </record>
+
+
+
+	<record id="form_formation" model="ir.ui.view">
+            <field name="name">formation.formation.form</field>
+            <field name="model">formation.formation</field>
+            <field name="arch" type="xml">
+              <form string="Formation" >
+				<sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="return_action_to_open"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-users"
+                            context="{'xml_id':'open_module_inscription'}"
+                            help="Apprenants de cette formation"
+                            width="350px"
+                            height="70px">
+                            (<field name="nbr_apprenants" style="color:#DC143C"/>) Nouvelle inscripton Apprenants
+                        </button>
+<!--                       <button name="return_action_to_open"-->
+<!--                            type="object"-->
+<!--                            class="oe_stat_button"-->
+<!--                            icon="fa-users"-->
+<!--                            context="{'xml_id':'open_module_inscription'}"-->
+<!--                            help="Apprenants de cette formation"-->
+<!--                            width="350px"-->
+<!--                            height="70px">-->
+<!--                            (<field name="nbr_apprenants" style="color:#DC143C"/>) les Apprenants-->
+<!--                        </button>-->
+<!--                      -->
+
+
+                               <button name="return_action_to_open"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-sitemap"
+                            help="show"
+                            width="150px"
+                            height="70px">
+                            (<field name="nbr_groupe" style="color:#DC143C"/>) Groupes
+                        </button>
+
+                         <button name="return_action_to_open"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-gears"
+                            help="Ressources"
+                            width="200px"
+                            height="70px">
+                            (<field name="nbr_ressources" style="color:#DC143C"/>) Ressources
+                        </button>
+                           <button name="return_action_to_open"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-paste"
+                            help="Modules"
+                            width="150px"
+                            height="70px">
+                            Modules
+                        </button>
+
+                               <button name="return_action_to_open"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-user"
+                            help="show"
+                            width="150px"
+                            height="70px">
+                             Enseignants
+                        </button>
+                    </div>
+
+                    <group col="4">
+                            <field name="name"/>
+                            <field name="annee_id"/>
+
+                    </group>
+                     <group> <field name="description"/></group>
+                    <group>
+                          <label for="date_debut" string="Date de Formation"/>
+                                <div class="o_row">
+                                    <field name="date_debut" widget="daterange" nolabel="1" class="oe_inline" options="{'related_end_date': 'date_fin'}"/>
+                                    <i class="fa fa-long-arrow-right mx-2" aria-label="Arrow icon" title="Arrow"/>
+                                    <field name="date_fin" widget="daterange" nolabel="1" class="oe_inline" options="{'related_start_date': 'date_debut'}"/>
+                                </div>
+
+                    </group>
+
+                    <group>
+                            <field name="duree"/>
+
+                    </group>
+                    <group col="4">
+                            <field name="modeformation_id"/>
+                            <field name="typeformation_id"/>
+
+                    </group>
+
+
+
+
+
+                    <group col="4">
+                    <field name="site_id" string="Lieu de Formation"/>
+
+<!--                    <field name="entreprise_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>-->
+                    </group>
+
+
+
+
+                    		  <notebook>
+                     <page string="Entreprises liées a cette formation">
+                          <field name="entreprise_ids" mode="tree,kanban" >
+                                <tree mode="tree,kanban" editable="bottom">
+					 <field name="name"/>
+                                </tree>
+                                 </field>
+                        </page>
+
+                              </notebook>
+
+					</sheet>
+
+                </form>
+            </field>
+    </record>
+
+   <record id="view_formation_kanban" model="ir.ui.view">
+            <field name="name">formation.formation.kanban</field>
+            <field name="model">formation.formation</field>
+            <field name="arch" type="xml">
+<!--                <kanban class="o_kanban_payment_acquirer o_kanban_dashboard">-->
+                <kanban class="o_kanban_payment_acquirer">
+                      <field name="color"/>
+                      <field name="name"/>
+                    <templates>
+                        <t t-name="kanban-box">
+<!--                            <div class="oe_kanban_global_click" >-->
+                          <div class="oe_kanban_global_click #{kanban_color(record.color.raw_value)}" >
+
+                            <div class="o_primary"><strong> Formation : <t t-esc="record.name.value"/> </strong> </div>
+                               <div class="oe_resource_details">
+                                    <ul>
+                                         <br/>
+							            	<li>Année : <field name="annee_id"/></li>
+                                            <li>Type de formation : <field name="typeformation_id"/></li>
+                                            <li>Mode de formation : <field name="modeformation_id"/></li>
+                                            <li>Nbr des apprenants :<field name="nbr_apprenants"/></li>
+                                            <li>Nbr des Groupes : <field name="nbr_groupe"/></li>
+                                    </ul>
+                            </div>
+
+                          </div>
+<!--                            </div>-->
+                        </t>
+                    </templates>
+<!--                     <templates>-->
+<!--                    <t t-name="kanban-box">-->
+<!--                        <t t-set="installed" t-value="!record.module_id.value || (record.module_id.value &amp;&amp; record.module_state.raw_value === 'installed')"/>-->
+<!--                        <t t-set="to_buy" t-value="record.module_to_buy.raw_value === true"/>-->
+<!--                        <div t-attf-class="oe_kanban_global_click #{kanban_color(record.color.raw_value)}">-->
+<!--                            <div class="o_payment_acquirer_desc">-->
+<!--                                <div class="o_kanban_image">-->
+<!--                                    <img type="open" t-att-src="kanban_image('payment.acquirer', 'image_128', record.id.raw_value)" alt="Acquirer"/>-->
+<!--                                </div>-->
+<!--                                <h3 class="mt4"><t t-esc="record.name.value"/></h3>-->
+<!--                                <t t-if="record.description.raw_value" t-out="record.description.value"/>-->
+<!--                            </div>-->
+<!--                            <div class="o_payment_acquirer_bottom">-->
+<!--                                <t t-if="installed">-->
+<!--                                    <field name="state" widget="label_selection" options="{'classes': {'enabled': 'success', 'test': 'warning', 'disabled' : 'danger'}}"/>-->
+<!--                                </t>-->
+<!--                                <button t-if="!installed and !selection_mode and !to_buy" type="object" class="btn btn-secondary float-right" name="button_immediate_install">Install</button>-->
+<!--                                <t t-if="!installed and to_buy">-->
+<!--                                    <button href="https://odoo.com/pricing?utm_source=db&amp;utm_medium=module" target="_blank" class="btn btn-info btn-sm float_right">Upgrade</button>-->
+<!--                                    <span class="badge badge-primary oe_inline o_enterprise_label">Enterprise</span>-->
+<!--                                </t>-->
+<!--                                <button t-if="installed and record.state.raw_value == 'disabled' and !selection_mode" type="edit" class="btn btn-primary float-right">Activate</button>-->
+<!--                                <button t-if="installed and record.state.raw_value in ['enabled', 'test'] and !selection_mode" type="edit" class="btn btn-primary float-right">Configure</button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </t>-->
+<!--                </templates>-->
+                </kanban>
+            </field>
+        </record>
+    <record id="formation_view_search" model="ir.ui.view">
+        <field name="name">formation.formation.search</field>
+        <field name="model">formation.formation</field>
+        <field name="priority">32</field>
+        <field name="arch" type="xml">
+            <search string="formation Analysis">
+            </search>
+        </field>
+    </record>
+</data>
+</odoo>

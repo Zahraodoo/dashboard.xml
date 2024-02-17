@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_apprenants_kanban" model="ir.ui.view">
+        <field name="name">formation.apprenants.kanban</field>
+        <field name="model">formation.apprenants</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard o_hr_recruitment_kanban"  create="0">
+                <field name="name" />
+             <templates>
+                    <t t-name="kanban-box">
+                        	<div class="oe_kanban_global_click">
+                            <div t-attf-class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary"><strong><t t-esc="record.name.value"  /></strong></div>
+                                     <div class="oe_resource_details">
+							         <ul>
+                                         <br/>
+                                        <li>N° de téléphone :<field name="telephone"/></li>
+                                        <li>Email :<field name="email"/></li>
+
+
+                                     </ul>
+                                    </div>
+
+                               </div>
+<!--             <div name="application_button" class="col-6 o_kanban_primary_left" align="center" >-->
+
+      <br/>
+  <br/>
+<br/>
+                            </div>
+                            </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+        <record id="view_apprenants_form" model="ir.ui.view">
+            <field name="name">formation.apprenants.form</field>
+            <field name="model">formation.apprenants</field>
+            <field name="arch" type="xml">
+                <form string="apprenants">
+                      <header>
+                </header>
+                    <sheet>
+                          <div class="oe_button_box" name="button_box">
+<!--                        <button name="return_action_to_open_f"-->
+<!--                            type="object"-->
+<!--                            class="oe_stat_button"-->
+<!--                            icon="fa-bar-chart-o"-->
+<!--                            context="{'xml_id':'enquete_apprenants_form_action_windows'}"-->
+<!--                            help="Enquete Féminin">-->
+<!--                             Féminin-->
+<!--                        </button>-->
+                           </div>
+<!--                          <center><strong><field name="name" style="color:#DC143C"/></strong> </center>-->
+<div align="center">
+</div>
+
+<!--                <group>-->
+<!--					<field string="Active" name="active" invisible="1"/>-->
+<!--                </group>-->
+  <group  col="4">
+         <h2>
+      Nom :  <strong><font color="#138D75"> <field name="nom"/>
+              </font></strong>
+         </h2>
+      <h2>
+      Prénom:  <strong><font color="#138D75"> <field name="prenom"/> </font></strong>
+      </h2>
+<!--       </div>-->
+    </group>
+
+      <hr/>
+    <group   col="4">
+
+               <field name="name" style="color:#DC143C"/>
+
+                        </group>
+
+
+    <group   col="4"  string="Information personnel">
+         <field name="date_naissance" />
+         <field name="age" />
+         <field name="niveau_etude" />
+   </group >
+    <group   col="4" >
+        <field name="telephone" />
+        <field name="email" />
+   </group >
+
+    <group >
+    <field name="adresse" />
+    </group>
+
+                     <!--
+
+
+  <group col="2">-->
+<!--                            <group string="Responsable Faculté">-->
+<!--                                <field name="userfac_id" string="Name"/>-->
+<!--                           <field name="userfac_email" string="Email"/>-->
+<!--                        </group>-->
+<!--                        <group  string="Responsable apprenantsement">-->
+<!--                            <field name="userdep_id" string="Name"/>-->
+<!--                            <field name="userdep_email"  string="Email"/>-->
+<!--                            </group>-->
+<!--                        </group>-->
+<!--                        <group>-->
+<!--                            <field name="image_field" invisible="1"/>-->
+<!--                        </group>-->
+                    </sheet>
+                 </form>
+            </field>
+        </record>
+
+        <record id="view_apprenants_tree" model="ir.ui.view">
+            <field name="name">formation.apprenants.tree</field>
+            <field name="model">formation.apprenants</field>
+            <field name="arch" type="xml">
+                <tree string="apprenants" create="0">
+                    <field name="id"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+
+
+
+        <record id="view_apprenants_filter" model="ir.ui.view">
+            <field name="name">formation.apprenants.search</field>
+            <field name="model">formation.apprenants</field>
+            <field name="arch" type="xml">
+                <search string="apprenants">
+                    <field name="name" string="enseignant"/>
+                 <!--   <filter string="Unread Messages" name="message_needaction" domain="[('message_needaction','=',True)]"/>-->
+                    <separator/>
+                 <!--   <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>-->
+                </search>
+             </field>
+        </record>
+
+
+        <record id="apprenants_view_search_bis" model="ir.ui.view">
+        <field name="name">formation.apprenants.view.search</field>
+        <field name="model">formation.apprenants</field>
+        <field name="arch" type="xml">
+            <search string="Search apprenants">
+                <field string="apprenants" name="name"
+                    filter_domain="['|', '|', ('name', 'ilike', self)]"/>
+<!--               <filter string="My apprenants" name="my_apprenants" domain="[('userfac_id', '=', uid)]"/>-->
+                <separator/>
+             <!--   <filter string="Unread Messages" name="message_needaction" domain="[('message_needaction', '=', True)]"/>-->
+                <separator/>
+                <group expand="0" string="Group By">
+<!--                    <filter string="Responsible" name="responsible" domain="[]"  context="{'group_by': 'userfac_id'}"/>-->
+<!--                   <filter string="Faculty" name="faculty" context="{'group_by':'faculty_id'}"/>-->
+                </group>
+           </search>
+        </field>
+    </record>
+s
+
+
+        <record id="open_module_apprenants" model="ir.actions.act_window">
+            <field name="name">Départements/Services</field>
+            <field name="res_model">formation.apprenants</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="search_view_id" ref="view_apprenants_filter"/>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Create a new apprenants
+              </p>
+            </field>
+        </record>
+
+  <!--département par faculté-->
+
+  <record id="apprenants_apprenantsment_action_windows" model="ir.actions.act_window" >
+        <field name="name">apprenants</field>
+        <field name="res_model">formation.apprenants</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="search_view_id" ref="apprenants_view_search_bis"/>
+        <field name="context"></field>
+        <field name="help" type="html">
+              <p class="o_view_nocontent_empty_folder">
+                No apprenants yet
+              </p>
+
+         </field>
+    </record>
+
+
+
+
+
+</data>
+</odoo>

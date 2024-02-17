@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="formation_root"
+        name="Gestion Centre Formation"
+        web_icon="gestion_centre_formation,static/description/icon.jpg"
+        sequence="0"/>
+
+    <menuitem
+                id="menu_Formation"
+                action="formation_action_windows"
+                parent="formation_root"
+                sequence="1"/>
+
+    <menuitem
+        id="configuration_formation_root"
+        name="Configuration"
+        parent="formation_root"
+        sequence="2"/>
+    <menuitem
+                id="menu_entreprise"
+                action="entreprise_action_windows"
+                parent="configuration_formation_root"
+                sequence="1"/>
+    <menuitem
+                id="menu_site_formation"
+                action="open_module_site"
+                parent="configuration_formation_root"
+                sequence="2"/>
+
+
+    <menuitem
+                id="menu_apprenants_formation"
+                action="apprenants_apprenantsment_action_windows"
+                parent="configuration_formation_root"
+                sequence="3"/>
+
+    <!--    <menuitem-->
+<!--                id="menu_enseignants"-->
+<!--                action="open_module_enseignants"-->
+<!--                parent="configuration_formation_root"-->
+<!--                sequence="2"/>-->
+<!--    <menuitem-->
+<!--                id="menu_groupe"-->
+<!--                action="open_module_groupe"-->
+<!--                parent="configuration_formation_root"-->
+<!--                sequence="3"/>-->
+    <menuitem
+                id="menu_mode_formation"
+                parent="configuration_formation_root"
+                sequence="4"/>
+
+
+ </odoo>

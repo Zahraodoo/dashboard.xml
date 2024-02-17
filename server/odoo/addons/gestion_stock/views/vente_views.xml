@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <!-- base structure of stock.vente, common with product.product -->
+    <record id="stock_vente_form_view" model="ir.ui.view">
+        <field name="name">stock.vente.form</field>
+        <field name="model">stock.vente</field>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <form string="Ventes">
+                <header>
+                </header>
+                <sheet name="vente form">
+                   <field name="id" invisible="True"/>
+                    <div class="oe_title">
+                        <label for="id_produit" string="Produit"/>
+                        <h1>
+                                <field class="text-break" name="id_produit" placeholder="e.g. Cheese Burger"/>
+                        </h1>
+                        <label for="name" string="Num de Vente"/>
+                        <h1>
+                                <field class="text-break" name="name" placeholder="e.g. Cheese Burger"/>
+                        </h1>
+                    </div>
+                    <style>
+                        div[name="options"] .o_field_boolean {
+                            margin-left: 10px;
+                            margin-right: 0px;
+                        }
+                    </style>
+                    <group col="2">
+                            <field name="user_id"/>
+                    </group>
+                    <group name="Reference Produits" col="6">
+                                 <field name="barcode" />
+                                 <field name="code_qr" />
+                                 <field name="default_code" />
+                            </group>
+                    <group col="4">
+                            <field name="client"/>
+                            <field name="num_client"/>
+                            <field name="contacte_client"/>
+                    </group>
+                    <notebook>
+                        <page string="Information Vente" name="vente_information">
+                            <group>
+                                <group col="2">
+                                    <field name="categorie_produit"/>
+                                    <field name="quantite_vente"/>
+                                    <field name="date_vente"/>
+                                </group>
+                                <group>
+                                    <label for="prix_unitaire" class="mt-1"/>
+                                    <div name="Prix Unitaire">
+                                      <field name="prix_unitaire" class="oe_inline" widget='monetary'
+                                        options="{'currency_field': 'currency_id'}"/>
+                                    </div>
+                                    <label for="prix_totale" class="mt-1"/>
+                                    <div name="Prix Totale">
+                                      <field name="prix_totale" class="oe_inline" widget='monetary'
+                                        options="{'currency_field': 'currency_id'}"/>
+                                    </div>
+                                   <field name="currency_id" invisible="1"/>
+
+                                </group>
+                            </group>
+                            <group string="Internal Notes">
+                                <field name="remarque" nolabel="1" placeholder="pour des informations supplémentaires sur la vente, si nécessaire."/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="stock_vente_search_view" model="ir.ui.view">
+        <field name="name">stock.vente.search</field>
+        <field name="model">stock.vente</field>
+        <field name="arch" type="xml">
+            <search string="Ventes">
+                 <field name="barcode" />
+                 <field name="code_qr" />
+                 <field name="default_code" />
+                <field name="name" string="Ventes" filter_domain="[('name', 'ilike', self)]"/>
+                <field name="id_produit" filter_domain="[]"/>
+
+                <separator/>
+                <group expand="1" string="Group By">
+                    <filter string="Produits" name="id_produit" context="{'group_by':'id_produit'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="vente_action_open" model="ir.actions.act_window">
+        <field name="name">Ventes</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stock.vente</field>
+        <field name="view_mode">kanban,tree,form</field>
+
+        <field name="search_view_id" ref="stock_vente_search_view"/>
+<field name="context">{}</field>
+
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new vente
+            </p>
+        </field>
+    </record>
+
+           <record id="vente_kanban_view" model="ir.ui.view">
+        <field name="name">stock.vente.kanban</field>
+        <field name="model">stock.vente</field>
+        <field name="arch" type="xml">
+            <kanban sample="1">
+                <field name="id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                    <progressbar field="id_produit" colors='{"1" : "danger", "2" : "success","3": "info"}'/>
+                                <div class="o_kanban_record_top mb-0">
+                                    <div class="o_kanban_record_headings">
+                                        <strong class="o_kanban_record_title">
+                                           Numéro : <field name="name"/>
+                                        </strong>
+                                    </div>
+                                </div>
+                                <div name="id_produit" class="mt-1" style="color: #CC0066;">
+                                     <t t-if="record.id_produit.value" >
+                                         <strong >Produit Vendu : </strong> <field name="id_produit" /></t>
+                                    </div>
+                                 <div name="user_id" class="mt-1" style="color: #0099CC;">
+                                <t t-if="record.user_id.value"><strong > Vendeur : </strong>  <field name="user_id" /></t>
+                                   </div>
+                                 <div name="date_vente" class="mt-1">
+                                     <t t-if="record.date_vente.value"> <strong > Date de vente :</strong> <field name="date_vente" /></t>
+                                 </div>
+                                   <div name="quantite_vente" class="mt-1" >
+                                     <t t-if="record.quantite_vente.value"><strong >Quantité : </strong>[<field name="quantite_vente" />]</t>
+                                   </div>
+                                       <div name="prix_unitaire" class="mt-1"  style="color: #0099CC;">
+                                    <strong >Prix Unitaire: </strong> <field name="prix_unitaire" widget="monetary" options="{'currency_field': 'currency_id'}"></field>
+                                </div>
+                                <div name="prix_unitaire" class="mt-1" style="color: #CC0066;">
+                                  <strong >Totale: </strong>  <field name="prix_totale" widget="monetary" options="{'currency_field': 'currency_id'}" ></field>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+ <record id="product_template_tree_view" model="ir.ui.view">
+        <field name="name">stock.vente.tree</field>
+        <field name="model">stock.vente</field>
+        <field name="arch" type="xml">
+            <tree string="Ventes" multi_edit="1" sample="1">
+                <field name="name" string="Numéro"/>
+                <field name="id_produit" />
+                 <field name="barcode" />
+                <field name="code_qr" />
+                <field name="default_code" />
+                <field name="client" />
+                <field name="contacte_client" />
+                <field name="num_client"/>
+                <field name="quantite_vente"/>
+                <field name="prix_unitaire"  />
+                <field name="categorie_produit"  />
+                <field name="prix_totale"  />
+                <field name="date_vente"  />
+                <field name="remarque"  />
+                <field name="user_id"  />
+            </tree>
+        </field>
+    </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,700 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+<!--____________________________enseignant_______________________________-->
+<record id="email_template_demandeenseig_recu" model="mail.template">
+            <field name="name">Notification reçu</field>
+            <field name="model_id" ref="stage.model_stage_demandenseig"/>
+            <field name="subject">Status de votre demande</field>
+            <field name="email_from">{{object.user_current.email}}</field>
+            <field name="email_to">{{object.email}}</field>
+            <field name="body_html" type="html">
+     <table border="0" cellpadding="0" cellspacing="0" width="590" style="background-color: white; border-collapse: collapse; margin-left: 20px;">
+      <tr>
+        <td valign="top" style="padding: 0px 10px;">
+            <div style="text-align: center">
+       <h2>   <t t-out="object.gender or ''"> </t>, <t t-out="object.name or ''"> </t> </h2><br/><br/>
+                <br/>
+
+                <div style="color:green;">votre demande de candidature au stage type <t t-out="object.typestage_id.name or ''"> </t>, est bien reçu.</div>
+            </div>
+
+          <div style="font-size: 13px;  text-align: center">
+              veuillez attendre la réponse sur votre email prochainement
+            <br/><br/>
+                please wait for our reply to your mail soon
+             <br/><br/>
+                يرجى انتظار ردنا على بريدك الإلكتروني قريبًا
+              <br/><br/>
+              <div style="font-size: 17px;  text-align: center">
+                Merci...
+              </div>
+            </div>
+
+<p align="left">VICE-RECTORAT DES RELATIONS EXTÉRIEURES ET COOPÉRATION </p>
+<!-- <p align="left"> Département/service:  <t t-out="object.depart_id.name or ''"> </t></p>-->
+<!--    <p align="left">la faculté  <t t-out="object.faculty_id.name or ''"> </t> </p>-->
+        </td>
+      </tr>
+    </table>
+    </field>
+    <!--
+<field name="report_template" ref="report_enseig_reçu"/>
+  <field name="report_name">Formulaire de demande de stage {{(object.name)}}</field>
+       <field name="user_signature" eval="True"/>-->
+    </record>
+
+<!-- message a employé et pour le bon reçu du dossier par relex-->
+
+     <record id="email_template_stage_recevable" model="mail.template">
+            <field name="name">Notification demande de dossier stage reçevable</field>
+            <field name="model_id" ref="stage.model_stage_demandenseig"/>
+            <field name="subject">reçevabilité de dossier</field>
+            <field name="email_from">{{object.user_current.email}}</field>
+            <field name="email_to">{{object.email}}</field>
+            <field name="body_html" type="html">
+     <table border="0" cellpadding="0" cellspacing="0" width="590" style="background-color: white; border-collapse: collapse; margin-left: 20px;">
+      <tr>
+        <td valign="top" style="padding: 0px 10px;">
+            <div style="text-align: center">
+             <h2>   <t t-out="object.gender or ''"> </t>, <t t-out="object.name or ''"> </t> </h2><br/><br/>
+
+            </div>
+          <div style="font-size: 13px; text-align: left">
+
+         	<br/>Nous tenons à vous informer que votre dossier de stage est jugé recevable, il est actuellement en cours de traitement.
+<br/>	Vous recevrez une notification par email, une fois que la commission donne un avis sur votre dossier.
+
+<br/>   remarque:
+        Votre dossier est sous reserve: <t t-out="object.sous_res or ''"> </t>,
+        pièces manquantes:  <t t-out="object.remarque or ''"> </t>,
+
+<br/>Veuillez consulter régulièrement votre boite email pour avoir de l’actualité.
+
+<br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+
+
+  <p align="left"> Merci </p>
+
+    <p align="left">VICE-RECTORAT DES RELATIONS EXTÉRIEURES ET COOPÉRATION </p>
+
+            </div>
+        </td>
+      </tr>
+    </table>
+    </field>
+
+    </record>
+
+
+  <!-- message au chef pour informer que la demande reçoit un avis recevable par adjoint-->
+
+    <record id="email_template_stage_recevable_chef" model="mail.template">
+            <field name="name">Notification demande de stage recevable par le chef service</field>
+            <field name="model_id" ref="stage.model_stage_demandenseig"/>
+            <field name="subject">demande de stage</field>
+            <field name="email_from">{{object.user_current.email}}</field>
+            <field name="email_to">{{object.chef_email}}</field>
+            <field name="body_html" type="html">
+     <table border="0" cellpadding="0" cellspacing="0" width="590" style="background-color: white; border-collapse: collapse; margin-left: 20px;">
+      <tr>
+        <td valign="top" style="padding: 0px 10px;">
+            <div style="text-align: center">
+<h2>   <t t-out="object.gender or ''"> </t>, <t t-out="object.name or ''"> </t>, responsable de <t t-out="object.service_id.name or ''"> </t></h2><br/><br/>
+
+
+                 </div>
+            <div style="text-align: left">
+
+<br/>Nous tenons à vous informer que vous avez reçu le dossier de  <t t-out="object.gender or ''"> </t>, <t t-out="object.name or ''"> </t>.
+     <br/> Le dossier de stage est jugé recevable
+<br/>Nous vous demandons de bien vouloir vous connecter à votre espace pour l'évaluation des employés.
+                Pour plus de détails : https://ent.univ-constantine2.dz
+<br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+
+<p align="left"> Merci de votre collaboration </p>
+                Cordialement
+        <br/> --------
+    <p align="left">VICE-RECTORAT DES RELATIONS EXTÉRIEURES ET COOPÉRATION </p>
+
+
+
+            </div>
+        </td>
+      </tr>
+    </table>
+    </field>
+
+    </record>
+
+  <!--    boite de dialogue pour l'employés irrecevable -->
+
+  <record id="email_template_demandenseig_irrecevable" model="mail.template">
+            <field name="name">Notification demande de stage irrecevable enseig </field>
+            <field name="model_id" ref="stage.model_stage_demandenseig"/>
+            <field name="subject">recevabilité de dossier</field>
+            <field name="email_from">{{object.user_current.email}}</field>
+            <field name="email_to">{{object.email}}</field>
+            <field name="body_html" type="html">
+     <table border="0" cellpadding="0" cellspacing="0" width="590" style="background-color: white; border-collapse: collapse; margin-left: 20px;">
+      <tr>
+        <td valign="top" style="padding: 0px 10px;">
+             <div style="text-align: center">
+              <h2>   <t t-out="object.gender or ''"> </t>, <t t-out="object.name or ''"> </t> </h2><br/><br/>
+
+
+
+            </div>
+            <div style="text-align: left">
+
+
+<br/>	Nous tenons à vous informer que votre dossier de stage est jugé non-recevable.
+
+<br/>Nous vous demandons de bien vouloir prendre contact avec le service relex pour avoir plus de détails.
+
+  <br/> motif:<t t-out="object.motif_id.name or ''"> </t>,
+  <br/> Remarque:<t t-out="object.remarque or ''"> </t>,
+                    <br/>
+                <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+
+
+<p align="left"> Merci </p>
+
+    <p align="left">VICE-RECTORAT DES RELATIONS EXTÉRIEURES ET COOPÉRATION</p>
+
+
+            </div>
+        </td>
+      </tr>
+    </table>
+    </field>
+
+    </record>
+
+
+ <!-- email pour favorable -->
+
+
+
+  <record id="email_template_stage_accepter_enseig" model="mail.template">
+            <field name="name">notification favorable enseig  </field>
+            <field name="model_id" ref="stage.model_stage_demandenseig"/>
+            <field name="subject">demande de stage favorable </field>
+            <field name="email_from">{{object.user_current.email}}</field>
+            <field name="email_to">{{object.email}}</field>
+            <field name="body_html" type="html">
+     <table border="0" cellpadding="0" cellspacing="0" width="590" style="background-color: white; border-collapse: collapse; margin-left: 20px;">
+      <tr>
+        <td valign="top" style="padding: 0px 10px;">
+             <div style="text-align: center">
+              <h2>   <t t-out="object.gender or ''"> </t>, <t t-out="object.name or ''"> </t> </h2><br/><br/>
+
+
+
+            </div>
+            <div style="text-align: left">
+
+<br/>Nous tenons à vous informer que la commission donne un avis favorable sur votre dossier de stage ,
+<br/>Nous vous demandons de bien vouloir prendre contact avec le service relex pour avoir plus de détails.
+
+
+<br/>
+                <br/>
+                <br/>
+                <br/>
+<p align="left"> Merci </p>
+
+    <p align="left">VICE-RECTORAT DES RELATIONS EXTÉRIEURES ET COOPÉRATION</p>
+
+
+
+
+            </div>
+        </td>
+      </tr>
+    </table>
+    </field>
+
+    </record>
+
+
+      <!-- email pour dosseir  -->
+
+
+
+  <record id="email_template_reserve_enseig" model="mail.template">
+            <field name="name">notification recevable sous reserve enseig  </field>
+            <field name="model_id" ref="stage.model_stage_demandenseig"/>
+            <field name="subject">demande de stage sous reserve </field>
+            <field name="email_from">{{object.user_current.email}}</field>
+            <field name="email_to">{{object.email}}</field>
+            <field name="body_html" type="html">
+     <table border="0" cellpadding="0" cellspacing="0" width="590" style="background-color: white; border-collapse: collapse; margin-left: 20px;">
+      <tr>
+        <td valign="top" style="padding: 0px 10px;">
+              <div style="text-align: center">
+              <h2>   <t t-out="object.gender or ''"> </t>, <t t-out="object.name or ''"> </t> </h2><br/><br/>
+
+
+
+            </div>
+            <div style="text-align: left">
+
+
+<br/>	Nous tenons à vous informer que votre dossier de stage est jugé non-recevable.
+
+<br/>Nous vous demandons de bien vouloir prendre contact avec le service relex pour avoir plus de détails.
+
+    <br/> motif:<t t-out="object.motif_id.name or ''"> </t>,
+   <br/> Remarque:<t t-out="object.remarque or ''"> </t>,
+
+
+                    <br/>
+                <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+
+
+<p align="left"> Merci </p>
+
+    <p align="left">VICE-RECTORAT DES RELATIONS EXTÉRIEURES ET COOPÉRATION</p>
+
+
+            </div>
+        </td>
+      </tr>
+    </table>
+    </field>
+
+    </record>
+
+
+   <!-- email dossier refus -->
+
+
+  <record id="email_template_stage_refus_prof" model="mail.template">
+            <field name="name">notification de demande de stage défavorable enseig  </field>
+            <field name="model_id" ref="stage.model_stage_demandenseig"/>
+            <field name="subject">demande défavorable</field>
+            <field name="email_from">{{object.user_current.email}}</field>
+            <field name="email_to">{{object.email}}</field>
+            <field name="body_html" type="html">
+ <table border="0" cellpadding="0" cellspacing="0" width="590" style="background-color: white; border-collapse: collapse; margin-left: 20px;">
+      <tr>
+        <td valign="top" style="padding: 0px 10px;">
+
+            <div style="text-align: center">
+            <h2>   <t t-out="object.gender or ''"> </t>, <t t-out="object.name or ''"> </t> </h2><br/><br/>
+
+
+            </div>
+            <div style="text-align: left">
+  <br/>                 نود اعلامكم انه قد تم رفض طلبكم المتمثل في الاستفادة من التربص بالخارج
+              <br/>  يمكنكم القيام بتقديم الطعن من خلال هذا الرابط
+               <t data-oe-t-inline="true">     <a href="/prof_recours" style="background-color: #875a7b; text-decoration: none; color: #fff; padding: 8px 16px 8px 16px; border-radius: 5px;">منصة الطعن</a></t>
+
+<br/>Nous tenons à vous informer que la commission donne un avis défavorable sur votre dossier de stage ,
+<br/>si vous voulez faire le recours acceder via ce lien en cliquant sur le bouton  <t data-oe-t-inline="true">     <a href="/prof_recours" style="background-color: #875a7b; text-decoration: none; color: #fff; padding: 8px 16px 8px 16px; border-radius: 5px;">Plateforme de Recours</a></t>
+
+
+
+<br/>
+
+
+<br/>
+                <br/>
+                <br/>
+                <br/>
+<p align="left"> Merci </p>
+
+    <p align="left">VICE-RECTORAT DES RELATIONS EXTÉRIEURES ET COOPÉRATION</p>
+
+
+
+
+            </div>
+        </td>
+      </tr>
+    </table>
+    </field>
+
+    </record>
+
+
+
+
+
+
+
+
+
+
+
+        <!--____________________________employer_______________________________-->
+<record id="email_template_demandemploy_recu" model="mail.template">
+            <field name="name">Notification reçu stage employ</field>
+            <field name="model_id" ref="stage.model_stage_demandemploy"/>
+            <field name="subject">Status de votre demande</field>
+            <field name="email_from">{{object.user_current.email}}</field>
+            <field name="email_to">{{object.email}}</field>
+            <field name="body_html" type="html">
+     <table border="0" cellpadding="0" cellspacing="0" width="590" style="background-color: white; border-collapse: collapse; margin-left: 20px;">
+      <tr>
+        <td valign="top" style="padding: 0px 10px;">
+            <div style="text-align: center">
+               <h2>   <t t-out="object.gender or ''"> </t>, <t t-out="object.name or ''"> </t> </h2><br/><br/>
+
+
+                <div style="color:green;">votre demande de candidature au stage type <t t-out="object.typestage_id.name or ''"> </t> est bien reçu.</div>
+            </div>
+          <div style="font-size: 13px;  text-align: center">
+                veuillez attendre la réponse sur votre email prochainementt
+            <br/><br/>
+                please wait for our reply to your mail soon
+             <br/><br/>
+                يرجى انتظار ردنا على بريدك الإلكتروني قريبًا
+              <br/><br/>
+              <div style="font-size: 17px;  text-align: center">
+                Merci...
+              </div>
+            </div>
+
+
+
+    <p align="left">VICE-RECTORAT DES RELATIONS EXTÉRIEURES ET COOPÉRATION </p>
+
+        </td>
+      </tr>
+    </table>
+    </field><!--
+<field name="report_template" ref="report_employ_reçu"/>
+  <field name="report_name">Formulaire de demande de stage {{(object.name)}}</field>
+       <field name="user_signature" eval="True"/> -->
+    </record>
+
+<!-- message a employé et pour le bon reçu du dossier par relex-->
+
+     <record id="email_template_stage_demandemploy_recevable" model="mail.template">
+            <field name="name">Notification demande de dossier stage employ reçevable</field>
+            <field name="model_id" ref="stage.model_stage_demandemploy"/>
+            <field name="subject">reçevabilité de dossier</field>
+            <field name="email_from">{{object.user_current.email}}</field>
+            <field name="email_to">{{object.email}}</field>
+            <field name="body_html" type="html">
+     <table border="0" cellpadding="0" cellspacing="0" width="590" style="background-color: white; border-collapse: collapse; margin-left: 20px;">
+      <tr>
+        <td valign="top" style="padding: 0px 10px;">
+            <div style="text-align: center">
+           <h2>   <t t-out="object.gender or ''"> </t>, <t t-out="object.name or ''"> </t> </h2><br/><br/>
+
+
+            </div>
+          <div style="font-size: 13px; text-align: left">
+
+         	<br/>Nous tenons à vous informer que votre dossier de stage est jugé recevable, il est actuellement en cours de traitement.
+<br/>	Vous recevrez une notification par email, une fois que la commission  donne un avis sur votre dossier.
+<br/>
+
+        remarque:
+        Votre dossier est sous reserve: <t t-out="object.sous_res or ''"> </t>,
+        pièces manquantes:  <t t-out="object.remarque or ''"> </t>,
+
+
+              <br/>Veuillez consulter régulièrement votre boite email pour avoir de l’actualité.
+
+<br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+
+
+  <p align="left"> Merci </p>
+
+    <p align="left">VICE-RECTORAT DES RELATIONS EXTÉRIEURES ET COOPÉRATION </p>
+
+            </div>
+        </td>
+      </tr>
+    </table>
+    </field>
+
+    </record>
+
+
+  <!-- message au chef pour informer que la demande reçoit un avis recevable par adjoint-->
+
+    <record id="email_template_stage_demandemploy_recevable_chef" model="mail.template">
+            <field name="name">Notification demande de stage recevable par le chef service employ</field>
+            <field name="model_id" ref="stage.model_stage_demandemploy"/>
+            <field name="subject">demande de stage</field>
+            <field name="email_from">{{object.user_current.email}}</field>
+            <field name="email_to">{{object.chef_email}}</field>
+            <field name="body_html" type="html">
+     <table border="0" cellpadding="0" cellspacing="0" width="590" style="background-color: white; border-collapse: collapse; margin-left: 20px;">
+      <tr>
+        <td valign="top" style="padding: 0px 10px;">
+            <div style="text-align: center">
+
+                <h2>   <t t-out="object.gender or ''"> </t>, <t t-out="object.name or ''"> </t>, responsable de <t t-out="object.service_id.name or ''"> </t></h2><br/><br/>
+
+
+                 </div>
+            <div style="text-align: left">
+
+<br/>Nous tenons à vous informer que vous avez reçu le dossier de <t t-out="object.gender or ''"> </t>, <t t-out="object.name or ''"> </t>.
+     <br/> Le dossier de stage est jugé recevable
+<br/>Nous vous demandons de bien vouloir vous connecter à votre espace pour l'évaluation des employés.
+                pour plus de détails : https://ent.univ-constantine2.dz
+<br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+
+<p align="left"> Merci de votre collaboration </p>
+                Cordialement
+        <br/> --------
+    <p align="left">VICE-RECTORAT DES RELATIONS EXTÉRIEURES ET COOPÉRATION </p>
+
+
+
+            </div>
+        </td>
+      </tr>
+    </table>
+    </field>
+
+    </record>
+
+  <!--    boite de dialogue pour l 'employés irrecevable -->
+
+  <record id="email_template_demandemploy_irrecevable" model="mail.template">
+            <field name="name">Notification demande de dossier stage irreçevable employ </field>
+            <field name="model_id" ref="stage.model_stage_demandemploy"/>
+            <field name="subject">recevabilité de dossier</field>
+            <field name="email_from">{{object.user_current.email}}</field>
+            <field name="email_to">{{object.email}}</field>
+            <field name="body_html" type="html">
+     <table border="0" cellpadding="0" cellspacing="0" width="590" style="background-color: white; border-collapse: collapse; margin-left: 20px;">
+      <tr>
+        <td valign="top" style="padding: 0px 10px;">
+             <div style="text-align: center">
+          <h2>   <t t-out="object.gender or ''"> </t>, <t t-out="object.name or ''"> </t> </h2><br/><br/>
+
+
+            </div>
+            <div style="text-align: left">
+
+
+<br/>	Nous tenons à vous informer que votre dossier de stage est jugé non-recevable pour le motif suivant
+
+        <br/> motif:<t t-out="object.motif_id.name or ''"> </t>,
+        <br/> Remarque:<t t-out="object.remarque or ''"> </t>,
+   <br/>Nous vous demandons de bien vouloir prendre contact avec le service relex pour avoir plus de détails.
+
+
+
+                    <br/>
+                <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+
+
+<p align="left"> Merci </p>
+
+    <p align="left">VICE-RECTORAT DES RELATIONS EXTÉRIEURES ET COOPÉRATION</p>
+
+
+            </div>
+        </td>
+      </tr>
+    </table>
+    </field>
+
+    </record>
+
+<!-- email pour favorable -->
+
+
+
+  <record id="email_template_stage_employ_accepter" model="mail.template">
+            <field name="name">notification favorable  employ</field>
+            <field name="model_id" ref="stage.model_stage_demandemploy"/>
+            <field name="subject">demande de stage favorable </field>
+            <field name="email_from">{{object.user_current.email}}</field>
+            <field name="email_to">{{object.email}}</field>
+            <field name="body_html" type="html">
+     <table border="0" cellpadding="0" cellspacing="0" width="590" style="background-color: white; border-collapse: collapse; margin-left: 20px;">
+      <tr>
+        <td valign="top" style="padding: 0px 10px;">
+             <div style="text-align: center">
+              <h2>   <t t-out="object.gender or ''"> </t>, <t t-out="object.name or ''"> </t> </h2><br/><br/>
+
+
+
+            </div>
+            <div style="text-align: left">
+
+<br/>Nous tenons à vous informer que la commission donne un avis favorable sur votre dossier de stage ,
+<br/>Nous vous demandons de bien vouloir prendre contact avec le service relex pour avoir plus de détails.
+
+
+<br/>
+                <br/>
+                <br/>
+                <br/>
+<p align="left"> Merci </p>
+
+    <p align="left">VICE-RECTORAT DES RELATIONS EXTÉRIEURES ET COOPÉRATION</p>
+
+
+
+
+            </div>
+        </td>
+      </tr>
+    </table>
+    </field>
+
+    </record>
+
+
+      <!-- email pour dosseir  -->
+
+
+
+  <record id="email_template_reserve_employ" model="mail.template">
+            <field name="name">notification recevable sous reserve employ </field>
+            <field name="model_id" ref="stage.model_stage_demandemploy"/>
+            <field name="subject">demande de stage sous reserve </field>
+            <field name="email_from">{{object.user_current.email}}</field>
+            <field name="email_to">{{object.email}}</field>
+            <field name="body_html" type="html">
+     <table border="0" cellpadding="0" cellspacing="0" width="590" style="background-color: white; border-collapse: collapse; margin-left: 20px;">
+      <tr>
+        <td valign="top" style="padding: 0px 10px;">
+              <div style="text-align: center">
+              <h2>   <t t-out="object.gender or ''"> </t>, <t t-out="object.name or ''"> </t> </h2><br/><br/>
+
+
+
+            </div>
+            <div style="text-align: left">
+
+
+<br/>	Nous tenons à vous informer que votre dossier de stage est jugé non-recevable.
+
+<br/>Nous vous demandons de bien vouloir prendre contact avec le service relex pour avoir plus de détails.
+
+      <br/> motif:<t t-out="object.motif_id.name or ''"> </t>,
+      <br/> Remarque:<t t-out="object.remarque or ''"> </t>,
+                    <br/>
+                <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+
+
+<p align="left"> Merci </p>
+
+    <p align="left">VICE-RECTORAT DES RELATIONS EXTÉRIEURES ET COOPÉRATION</p>
+
+
+            </div>
+        </td>
+      </tr>
+    </table>
+    </field>
+
+    </record>
+
+
+   <!-- email dossier refus -->
+
+
+  <record id="email_template_stage_refus_employ" model="mail.template">
+            <field name="name">notification de demande de stage défavorable employ  </field>
+            <field name="model_id" ref="stage.model_stage_demandemploy"/>
+            <field name="subject">demande défavorable</field>
+            <field name="email_from">{{object.user_current.email}}</field>
+            <field name="email_to">{{object.email}}</field>
+            <field name="body_html" type="html">
+     <table border="0" cellpadding="0" cellspacing="0" width="590" style="background-color: white; border-collapse: collapse; margin-left: 20px;">
+      <tr>
+        <td valign="top" style="padding: 0px 10px;">
+
+            <div style="text-align: center">
+           <h2>   <t t-out="object.gender or ''"> </t>, <t t-out="object.name or ''"> </t> </h2><br/><br/>
+
+            </div>
+            <div style="text-align: left">
+
+            <br/>                 نود اعلامكم انه قد تم رفض طلبكم المتمثل في الاستفادة من التربص بالخارج
+              <br/>  يمكنكم القيام بتقديم الطعن من خلال هذا الرابط
+    <t data-oe-t-inline="true">
+ <a href="/employee_modif/form" style="background-color: #875a7b; text-decoration: none; color: #fff; padding: 8px 16px 8px 16px; border-radius: 5px;">منصة الطعن</a></t>
+
+<br/>Nous tenons à vous informer que la commission donne un avis défavorable sur votre dossier de stage ,
+<br/>si vous voulez faire le recours acceder via ce lien en cliquant sur le bouton  <t data-oe-t-inline="true">
+ <a href="/employee_modif/form" style="background-color: #875a7b; text-decoration: none; color: #fff; padding: 8px 16px 8px 16px; border-radius: 5px;">Plateforme de Recours</a></t>
+
+
+
+<br/>
+                <br/>
+                <br/>
+                <br/>
+<p align="left"> Merci </p>
+
+    <p align="left">VICE-RECTORAT DES RELATIONS EXTÉRIEURES ET COOPÉRATION</p>
+
+
+
+
+            </div>
+        </td>
+      </tr>
+    </table>
+    </field>
+
+    </record>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </data>
+</odoo>
+
+
+

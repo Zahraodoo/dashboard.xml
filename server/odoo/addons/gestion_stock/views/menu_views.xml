@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem
+            id="menu_stock_root"
+            name="Gestion de Stock"
+            web_icon="gestion_stock,static/description/icon.png"
+            sequence="1"/>
+
+        <menuitem
+            id="menu_stock_main"
+            name="Gestion de Stock"
+            parent="menu_stock_root"
+            sequence="0"/>
+
+        <menuitem
+            id="menu_produit"
+            name="Produits"
+            parent="menu_stock_root"
+            action="produit_action_open"
+            sequence="2"/>
+
+        <menuitem
+            id="menu_vente"
+            name="Ventes"
+            parent="menu_stock_root"
+            action="vente_action_open"
+            sequence="3"/>
+
+        <menuitem
+            id="menu_categorie"
+            name="Ctegorie"
+            parent="menu_stock_root"
+            action="categorie_action_open"
+            sequence="4"/>
+
+        <menuitem
+            id="menu_achat"
+            name="Achat"
+            parent="menu_stock_root"
+            action="achat_action_open"
+            sequence="5"/>
+
+
+    </data>
+</odoo>
