@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data noupdate="1">
+
+ <record model="formation.mode" id="mode_1">
+    <field name="name">présentielle</field>
+
+    </record>
+
+    <record model="formation.mode" id="mode_2">
+    <field name="name">à distance</field>
+
+    </record>
+
+    <record model="formation.mode" id="mode_3">
+    <field name="name">mixte</field>
+
+    </record>
+
+
+</data>
+</odoo>

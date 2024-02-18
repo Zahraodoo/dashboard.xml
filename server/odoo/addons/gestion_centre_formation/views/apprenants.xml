@@ -5,7 +5,7 @@
         <field name="name">formation.apprenants.kanban</field>
         <field name="model">formation.apprenants</field>
         <field name="arch" type="xml">
-            <kanban class="oe_background_grey o_kanban_dashboard o_hr_recruitment_kanban"  create="0">
+            <kanban class="oe_background_grey o_kanban_dashboard o_hr_recruitment_kanban">
                 <field name="name" />
              <templates>
                     <t t-name="kanban-box">
@@ -120,7 +120,7 @@
             <field name="name">formation.apprenants.tree</field>
             <field name="model">formation.apprenants</field>
             <field name="arch" type="xml">
-                <tree string="apprenants" create="0">
+                <tree string="apprenants">
                     <field name="id"/>
                     <field name="name"/>
                 </tree>

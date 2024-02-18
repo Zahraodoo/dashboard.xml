@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_inscription_kanban" model="ir.ui.view">
+        <field name="name">formation.inscription.kanban</field>
+        <field name="model">formation.inscription</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard o_hr_recruitment_kanban">
+                <field name="name" />
+             <templates>
+                    <t t-name="kanban-box">
+                        	<div class="oe_kanban_global_click">
+                            <div t-attf-class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary"><t t-esc="record.name.value"  /></div>
+                                     <div class="oe_resource_details">
+							         <ul>
+                                        <field name="name"/>
+
+                                     </ul>
+                                    </div>
+
+                               </div>
+<!--             <div name="application_button" class="col-6 o_kanban_primary_left" align="center" >-->
+
+      <br/>
+  <br/>
+<br/>
+                            </div>
+                            </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+        <record id="view_inscription_form" model="ir.ui.view">
+            <field name="name">formation.inscription.form</field>
+            <field name="model">formation.inscription</field>
+            <field name="arch" type="xml">
+                <form string="inscription">
+                      <header>
+                </header>
+                    <sheet>
+                        <hr/>
+                          <center><strong><field name="name" style="color:#138D75" string="inscription"/></strong> </center>
+                        <hr/>
+                        <group col="4">
+                                <field name="date_inscription"/>
+                                <field name="formation_id"  readonly="1"/>
+                        </group>
+                        <group col="2">
+                                <field name="type_inscription"/>
+                                <field name="entreprise_id"   attrs="{'invisible':[('type_inscription', '=','individuelle')]}"  />
+                                <field name="apprenant_id"/>
+
+                        </group>
+
+                    </sheet>
+                 </form>
+            </field>
+        </record>
+
+        <record id="view_inscription_tree" model="ir.ui.view">
+            <field name="name">formation.inscription.tree</field>
+            <field name="model">formation.inscription</field>
+            <field name="arch" type="xml">
+                <tree string="inscription">
+<!--                    <field name="id"/>-->
+<!--                    <field name="name"/>-->
+<!--                    <field name="adresse"/>-->
+<!--                    <field name="contact"/>-->
+                </tree>
+            </field>
+        </record>
+
+
+
+
+        <record id="view_inscription_filter" model="ir.ui.view">
+            <field name="name">formation.inscription.search</field>
+            <field name="model">formation.inscription</field>
+            <field name="arch" type="xml">
+                <search string="inscription">
+                    <field name="name" string="inscription"/>
+                 <!--   <filter string="Unread Messages" name="message_needaction" domain="[('message_needaction','=',True)]"/>-->
+                    <separator/>
+                 <!--   <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>-->
+                </search>
+             </field>
+        </record>
+
+
+        <record id="inscription_view_search_bis" model="ir.ui.view">
+        <field name="name">formation.inscription.view.search</field>
+        <field name="model">formation.inscription</field>
+        <field name="arch" type="xml">
+            <search string="Search inscription">
+                <field string="inscription" name="name"
+                    filter_domain="['|', '|', ('name', 'ilike', self)]"/>
+<!--               <filter string="My entreprise" name="my_entreprise" domain="[('userfac_id', '=', uid)]"/>-->
+                <separator/>
+                         <group expand="0" string="Group By">
+<!--                    <filter string="Responsible" name="responsible" domain="[]"  context="{'group_by': 'userfac_id'}"/>-->
+<!--                   <filter string="Faculty" name="faculty" context="{'group_by':'faculty_id'}"/>-->
+                </group>
+           </search>
+        </field>
+    </record>
+s
+
+
+        <record id="open_module_inscription" model="ir.actions.act_window">
+            <field name="name">inscription</field>
+            <field name="res_model">formation.inscription</field>
+            <field name="view_mode">form,tree</field>
+            <field name="search_view_id" ref="view_inscription_filter"/>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Créer une nouvelle inscription
+              </p>
+            </field>
+        </record>
+
+  <!--département par faculté-->
+
+  <record id="inscription_action_windows" model="ir.actions.act_window" >
+        <field name="name">inscription</field>
+        <field name="res_model">formation.inscription</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="search_view_id" ref="inscription_view_search_bis"/>
+
+        <field name="help" type="html">
+              <p class="o_view_nocontent_empty_folder">
+                No inscription yet
+              </p>
+
+         </field>
+    </record>
+
+
+
+
+
+</data>
+</odoo>

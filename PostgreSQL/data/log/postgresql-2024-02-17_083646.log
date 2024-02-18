@@ -1,0 +1,13 @@
+2024-02-17 08:36:47.071 CET [23524] LOG:  le système de bases de données a été arrêté à 2024-02-17 08:36:45 CET
+2024-02-17 08:36:47.192 CET [20492] LOG:  le système de bases de données est prêt pour accepter les connexions
+2024-02-17 08:42:25.480 CET [408] ERREUR:  la colonne formation_formation.color n'existe pas au caractÃ¨re 500
+2024-02-17 08:42:25.480 CET [408] INSTRUCTION :  SELECT "formation_formation"."id" as "id", "formation_formation"."duree" as "duree", "formation_formation"."name" as "name", "formation_formation"."modeformation_id" as "modeformation_id", "formation_formation"."site_id" as "site_id", "formation_formation"."write_date" as "write_date", "formation_formation"."write_uid" as "write_uid", "formation_formation"."description" as "description", "formation_formation"."nbr_ressources" as "nbr_ressources", "formation_formation"."date_fin" as "date_fin", "formation_formation"."color" as "color", "formation_formation"."typeformation_id" as "typeformation_id", "formation_formation"."create_date" as "create_date", "formation_formation"."annee_id" as "annee_id", "formation_formation"."date_debut" as "date_debut", "formation_formation"."create_uid" as "create_uid" FROM "formation_formation" WHERE "formation_formation".id IN (1)
+2024-02-17 08:42:49.395 CET [20492] LOG:  a reçu une demande d'arrêt rapide
+2024-02-17 08:42:49.405 CET [20492] LOG:  annulation des transactions actives
+2024-02-17 08:42:49.410 CET [408] FATAL:  arrÃªt des connexions suite Ã  la demande de l'administrateur
+2024-02-17 08:42:49.423 CET [14340] FATAL:  arrÃªt des connexions suite Ã  la demande de l'administrateur
+2024-02-17 08:42:49.424 CET [14444] FATAL:  arrÃªt des connexions suite Ã  la demande de l'administrateur
+2024-02-17 08:42:49.447 CET [20492] LOG:  processus en tâche de fond « logical replication launcher » (PID 10352) a quitté avec le code de sortie 1
+2024-02-17 08:42:49.444 CET [1952] FATAL:  arrÃªt des connexions suite Ã  la demande de l'administrateur
+2024-02-17 08:42:49.479 CET [21240] LOG:  arrêt en cours
+2024-02-17 08:42:49.534 CET [20492] LOG:  le système de base de données est arrêté

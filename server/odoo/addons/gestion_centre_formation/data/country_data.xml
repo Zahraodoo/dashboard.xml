@@ -1,0 +1,1204 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <data noupdate="1">
+
+    <record id="fr" model="formation.country">
+            <field name="name">France</field>
+            <field name="name_ar">فرنسا</field>
+    </record>
+
+     <record id="tn" model="formation.country">
+            <field name="name">Tunisie</field>
+            <field name="name_ar">تونس</field>
+     </record>
+
+     <record id="ad" model="formation.country">
+            <field name="name">Andorre</field>
+            <field name="name_ar">أندورا</field>
+     </record>
+     <record id="ae" model="formation.country">
+            <field name="name">Émirats arabes unis</field>
+            <field name="name_ar">الإمارات العربية المتحدة</field>
+     </record>
+
+     <record id="af" model="formation.country">
+            <field name="name">Afghanistan</field>
+            <field name="name_ar">أفغانستان</field>
+     </record>
+     <record id="ag" model="formation.country">
+            <field name="name">Antigua et Barbuda</field>
+            <field name="name_ar">أنتيغوا وبربودا</field>
+     </record>
+
+        <record id="ai" model="formation.country">
+            <field name="name">Anguilla</field>
+            <field name="name_ar">أنغيلا</field>
+        </record>
+
+        <record id="al" model="formation.country">
+            <field name="name">Albanie</field>
+            <field name="name_ar">ألبانيا</field>
+        </record>
+
+        <record id="am" model="formation.country">
+            <field name="name">Arménie</field>
+            <field name="name_ar">أرمينيا</field>
+        </record>
+
+        <record id="ao" model="formation.country">
+            <field name="name">Angola</field>
+            <field name="name_ar">أنغولا</field>
+        </record>
+
+        <record id="aq" model="formation.country">
+            <field name="name">Antarctique</field>
+            <field name="name_ar">القطب الجنوبي</field>
+        </record>
+
+        <record id="ar" model="formation.country">
+            <field name="name">Argentine</field>
+            <field name="name_ar">الأرجنتين</field>
+
+        </record>
+        <record id="as" model="formation.country">
+            <field name="name">Samoa américaines</field>
+            <field name="name_ar">ساموا الأمريكية</field>
+
+        </record>
+        <record id="at" model="formation.country">
+            <field name="name">Autriche</field>
+            <field name="name_ar">النمسا</field>
+
+        </record>
+        <record id="au" model="formation.country">
+            <field name="name">Australie</field>
+            <field name="name_ar">أستراليا</field>
+
+        </record>
+        <record id="aw" model="formation.country">
+            <field name="name">Aruba</field>
+            <field name="name_ar">جزيرة أروبا</field>
+
+        </record>
+        <record id="ax" model="formation.country">
+            <field name="name">Iles Åland</field>
+            <field name="name_ar">جزر آلاند</field>
+
+        </record>
+        <record id="az" model="formation.country">
+            <field name="name">Azerbaïdjan</field>
+            <field name="name_ar">أذربيجان</field>
+
+        </record>
+        <record id="ba" model="formation.country">
+            <field name="name">Bosnie-Herzégovine</field>
+            <field name="name_ar">البوسنة والهرسك</field>
+
+        </record>
+        <record id="bb" model="formation.country">
+            <field name="name">Barbade</field>
+            <field name="name_ar">باربادوس</field>
+
+        </record>
+        <record id="bd" model="formation.country">
+            <field name="name">Bengladesh</field>
+            <field name="name_ar">بنغلاديش</field>
+
+        </record>
+        <record id="be" model="formation.country">
+            <field name="name">Belgique</field>
+            <field name="name_ar">بلجيكا</field>
+
+        </record>
+        <record id="bf" model="formation.country">
+            <field name="name">Burkina Faso</field>
+            <field name="name_ar">بوركينا فاسو</field>
+
+        </record>
+        <record id="bg" model="formation.country">
+            <field name="name">Bulgarie</field>
+            <field name="name_ar">بلغاريا</field>
+
+        </record>
+        <record id="bh" model="formation.country">
+            <field name="name">Bahreïn</field>
+            <field name="name_ar">البحرين</field>
+
+        </record>
+        <record id="bi" model="formation.country">
+            <field name="name">Burundi</field>
+            <field name="name_ar">بوروندي</field>
+
+        </record>
+
+        <record id="bj" model="formation.country">
+            <field name="name">Bénin</field>
+            <field name="name_ar">بنين</field>
+        </record>
+
+        <record id="bl" model="formation.country">
+            <field name="name">Saint Barthélémy</field>
+            <field name="name_ar">سانت بارتيليمي</field>
+        </record>
+
+        <record id="bm" model="formation.country">
+            <field name="name">Bermudes</field>
+            <field name="name_ar">برمودا</field>
+        </record>
+
+        <record id="bn" model="formation.country">
+            <field name="name">Brunéi Darussalam</field>
+            <field name="name_ar">بروناي دار السلام</field>
+        </record>
+
+        <record id="bo" model="formation.country">
+        <field name="name">Bolivie</field>
+        <field name="name_ar">بوليفيا</field>
+        </record>
+
+        <record id="br" model="formation.country">
+        <field name="name">Brésil</field>
+        <field name="name_ar">بريزيل</field>
+        </record>
+
+        <record id="bs" model="formation.country">
+        <field name="name">Bahamas</field>
+        <field name="name_ar">جزر البهاما</field>
+        </record>
+
+        <record id="bt" model="formation.country">
+        <field name="name">Bhoutan</field>
+        <field name="name_ar">بوتان</field>
+        </record>
+
+        <record id="bv" model="formation.country">
+        <field name="name">Île Bouvet</field>
+        <field name="name_ar">جزيرة بوفي</field>
+        </record>
+
+        <record id="bw" model="formation.country">
+            <field name="name">Botswana</field>
+            <field name="name_ar">بوتسوانا</field>
+
+        </record>
+        <record id="by" model="formation.country">
+            <field name="name">Biélorussie</field>
+            <field name="name_ar">بيلاروسيا</field>
+
+        </record>
+        <record id="bz" model="formation.country">
+            <field name="name">Belize</field>
+            <field name="name_ar">بيليز</field>
+
+        </record>
+        <record id="ca" model="formation.country">
+            <field name="name">Canada</field>
+            <field name="name_ar">كندا</field>
+
+        </record>
+        <record id="cc" model="formation.country">
+            <field name="name">Îles Cocos (Keeling)</field>
+            <field name="name_ar">جزر الكوكوس</field>
+
+        </record>
+        <record id="cf" model="formation.country">
+            <field name="name">République Centre-Africaine</field>
+            <field name="name_ar">جمهورية افريقيا الوسطى</field>
+
+        </record>
+        <record id="cd" model="formation.country">
+            <field name="name">République démocratique du Congo</field>
+            <field name="name_ar">جمهورية الكونغو الديموقراطية</field>
+
+        </record>
+        <record id="cg" model="formation.country">
+            <field name="name">Congo</field>
+            <field name="name_ar">الكونغو</field>
+
+        </record>
+        <record id="ch" model="formation.country">
+            <field name="name">Suisse</field>
+            <field name="name_ar">سويسرا</field>
+
+        </record>
+        <record id="ci" model="formation.country">
+            <field name="name">Côte d'Ivoire</field>
+            <field name="name_ar">كوت ديفوار</field>
+
+        </record>
+        <record id="ck" model="formation.country">
+            <field name="name">Îles Cook</field>
+            <field name="name_ar">جزر كوك</field>
+
+        </record>
+        <record id="cl" model="formation.country">
+            <field name="name">Chili</field>
+            <field name="name_ar">تشيلي</field>
+
+        </record>
+        <record id="cm" model="formation.country">
+            <field name="name">Cameroon</field>
+            <field name="name_ar">الكاميرون</field>
+
+        </record>
+        <record id="cn" model="formation.country">
+            <field name="name">Chine</field>
+            <field name="name_ar">الصين</field>
+
+        </record>
+        <record id="co" model="formation.country">
+            <field name="name">Colombie</field>
+            <field name="name_ar">كولومبيا</field>
+
+        </record>
+        <record id="cr" model="formation.country">
+            <field name="name">Costa Rica</field>
+            <field name="name_ar">كوستا ريكا</field>
+
+        </record>
+        <record id="cu" model="formation.country">
+            <field name="name">Cuba</field>
+            <field name="name_ar">كوبا</field>
+
+        </record>
+        <record id="cv" model="formation.country">
+            <field name="name">Cap-Vert</field>
+            <field name="name_ar">الرأس الأخضر</field>
+
+        </record>
+        <record id="cw" model="formation.country">
+            <field name="name">Curaçao</field>
+            <field name="name_ar">كوراساو</field>
+
+        </record>
+        <record id="cx" model="formation.country">
+            <field name="name">Île Christmas</field>
+            <field name="name_ar">جزيرة الكريسماس</field>
+
+        </record>
+        <record id="cy" model="formation.country">
+            <field name="name">Chypre</field>
+            <field name="name_ar">قبرص</field>
+
+        </record>
+        <record id="cz" model="formation.country">
+            <field name="name">République tchèque</field>
+            <field name="name_ar">الجمهورية التشيكية</field>
+
+        </record>
+        <record id="de" model="formation.country">
+            <field name="name">Allemagne</field>
+            <field name="name_ar">ألمانيا</field>
+
+        </record>
+        <record id="dj" model="formation.country">
+            <field name="name">Djibouti</field>
+            <field name="name_ar">جيبوتي</field>
+
+        </record>
+        <record id="dk" model="formation.country">
+            <field name="name">Danemark</field>
+            <field name="name_ar">الدنمارك</field>
+
+        </record>
+        <record id="dm" model="formation.country">
+            <field name="name">Dominique</field>
+            <field name="name_ar">دومينيكا</field>
+
+        </record>
+        <record id="do" model="formation.country">
+            <field name="name">République Dominicaine</field>
+            <field name="name_ar">جمهورية الدومينيكان</field>
+
+        </record>
+        <record id="dz" model="formation.country">
+            <field name="name">Algerie</field>
+            <field name="name_ar">الجزائر</field>
+
+        </record>
+        <record id="ec" model="formation.country">
+            <field name="name">Équateur</field>
+            <field name="name_ar">الاكوادور</field>
+
+        </record>
+        <record id="ee" model="formation.country">
+            <field name="name">Estonie</field>
+            <field name="name_ar">إستونيا</field>
+
+        </record>
+        <record id="eg" model="formation.country">
+            <field name="name">Égypte</field>
+            <field name="name_ar">مصر</field>
+
+        </record>
+        <record id="eh" model="formation.country">
+            <field name="name">Sahara Occidental</field>
+            <field name="name_ar">الصحراء الغربية</field>
+
+        </record>
+        <record id="er" model="formation.country">
+            <field name="name">Érythrée</field>
+            <field name="name_ar">إريتريا</field>
+
+        </record>
+        <record id="es" model="formation.country">
+            <field name="name">Espagne</field>
+            <field name="name_ar">إسبانيا</field>
+
+        </record>
+        <record id="et" model="formation.country">
+            <field name="name">Éthiopie</field>
+            <field name="name_ar">أثيوبيا</field>
+
+        </record>
+        <record id="fi" model="formation.country">
+            <field name="name">Finlande</field>
+            <field name="name_ar">فنلندا</field>
+
+        </record>
+        <record id="fj" model="formation.country">
+            <field name="name">Fiji</field>
+            <field name="name_ar">فيجي</field>
+
+        </record>
+        <record id="fk" model="formation.country">
+            <field name="name">Îles Falkland</field>
+            <field name="name_ar">جزر فوكلاند</field>
+
+        </record>
+        <record id="fm" model="formation.country">
+            <field name="name">Micronésie</field>
+            <field name="name_ar">ميكرونيزيا</field>
+
+        </record>
+        <record id="fo" model="formation.country">
+            <field name="name">Îles Féroé</field>
+            <field name="name_ar">جزر فارو</field>
+
+        </record>
+
+        <record id="ga" model="formation.country">
+            <field name="name">Gabon</field>
+            <field name="name_ar">الجابون</field>
+
+        </record>
+        <record id="gd" model="formation.country">
+            <field name="name">Grenade</field>
+            <field name="name_ar">غرينادا</field>
+
+        </record>
+        <record id="ge" model="formation.country">
+            <field name="name">Georgie</field>
+            <field name="name_ar">جورجيا</field>
+
+        </record>
+        <record id="gf" model="formation.country">
+            <field name="name">Guyane française</field>
+            <field name="name_ar">غيانا الفرنسية</field>
+
+        </record>
+        <record id="gh" model="formation.country">
+            <field name="name">Ghana</field>
+            <field name="name_ar">غانا</field>
+
+        </record>
+        <record id="gi" model="formation.country">
+            <field name="name">Gibraltar</field>
+            <field name="name_ar">جبل طارق</field>
+
+        </record>
+        <record id="gg" model="formation.country">
+            <field name="name">Guernesey</field>
+            <field name="name_ar">غيرنسي</field>
+
+        </record>
+        <record id="gl" model="formation.country">
+            <field name="name">Groënland</field>
+            <field name="name_ar">جرين ﻻند</field>
+
+        </record>
+        <record id="gm" model="formation.country">
+            <field name="name">Gambie</field>
+            <field name="name_ar">غامبيا</field>
+
+        </record>
+        <record id="gn" model="formation.country">
+            <field name="name">Guinée</field>
+            <field name="name_ar">غينيا</field>
+
+        </record>
+        <record id="gp" model="formation.country">
+            <field name="name">Guadeloupe</field>
+            <field name="name_ar">جوادلوب</field>
+
+        </record>
+        <record id="gq" model="formation.country">
+            <field name="name">Guinée Équatoriale</field>
+            <field name="name_ar">غينيا الإستوائية</field>
+
+        </record>
+        <record id="gr" model="formation.country">
+            <field name="name">Grèce</field>
+            <field name="name_ar">اليونان</field>
+
+        </record>
+        <record id="gs" model="formation.country">
+            <field name="name">Géorgie du Sud-et-les Îles Sandwich du Sud</field>
+            <field name="name_ar">جورجيا الجنوبية وجزر ساندويتش الجنوبية</field>
+
+        </record>
+        <record id="gt" model="formation.country">
+            <field name="name">Guatemala</field>
+            <field name="name_ar">غواتيمالا</field>
+
+        </record>
+        <record id="gu" model="formation.country">
+            <field name="name">Guam</field>
+            <field name="name_ar">غوام</field>
+
+        </record>
+        <record id="gw" model="formation.country">
+            <field name="name">Guinée-Bissau</field>
+            <field name="name_ar">غينيا بيساو</field>
+
+        </record>
+        <record id="gy" model="formation.country">
+            <field name="name">Guyane</field>
+            <field name="name_ar">غيانا</field>
+
+        </record>
+        <record id="hk" model="formation.country">
+            <field name="name">Hong Kong</field>
+            <field name="name_ar">هونغ كونغ</field>
+
+        </record>
+        <record id="hm" model="formation.country">
+            <field name="name">Îles Heard et McDonald</field>
+            <field name="name_ar">جزيرة هيرد وجزر ماكدونالد</field>
+
+        </record>
+        <record id="hn" model="formation.country">
+            <field name="name">Honduras</field>
+            <field name="name_ar">هندوراس</field>
+
+        </record>
+        <record id="hr" model="formation.country">
+            <field name="name">Croatie</field>
+            <field name="name_ar">كرواتيا</field>
+
+        </record>
+        <record id="ht" model="formation.country">
+            <field name="name">Haïti</field>
+            <field name="name_ar">هاييتي</field>
+
+        </record>
+        <record id="hu" model="formation.country">
+            <field name="name">Hongrie</field>
+            <field name="name_ar">المجر</field>
+
+        </record>
+        <record id="id" model="formation.country">
+            <field name="name">Indonésie</field>
+            <field name="name_ar">إندونيسيا</field>
+
+        </record>
+        <record id="ie" model="formation.country">
+            <field name="name">Irlande</field>
+            <field name="name_ar">إيرلندا</field>
+        </record>
+
+        <record id="im" model="formation.country">
+            <field name="name">Île de Man</field>
+            <field name="name_ar">جزيرة آيل أوف مان</field>
+        </record>
+
+        <record id="in" model="formation.country">
+            <field name="name">Inde</field>
+            <field name="name_ar">الهند</field>
+
+        </record>
+        <record id="io" model="formation.country">
+            <field name="name">Territoire britannique de l'océan Indien</field>
+            <field name="name_ar">مقاطعة المحيط الهندي البريطانية</field>
+
+        </record>
+        <record id="iq" model="formation.country">
+            <field name="name">Irak</field>
+            <field name="name_ar">العراق</field>
+
+        </record>
+        <record id="ir" model="formation.country">
+            <field name="name">Iran</field>
+            <field name="name_ar">إيران</field>
+
+        </record>
+        <record id="is" model="formation.country">
+            <field name="name">Islande</field>
+            <field name="name_ar">آيسلندا</field>
+
+        </record>
+        <record id="it" model="formation.country">
+            <field name="name">Italie</field>
+            <field name="name_ar">إيطاليا</field>
+
+        </record>
+        <record id="je" model="formation.country">
+            <field name="name">Jersey</field>
+            <field name="name_ar">جيرسي</field>
+
+        </record>
+        <record id="jm" model="formation.country">
+            <field name="name">Jamaïque</field>
+            <field name="name_ar">جامايكا</field>
+
+        </record>
+        <record id="jo" model="formation.country">
+            <field name="name">Jordanie</field>
+            <field name="name_ar">الأردن</field>
+
+        </record>
+        <record id="jp" model="formation.country">
+            <field name="name">Japon</field>
+            <field name="name_ar">اليابان</field>
+
+        </record>
+        <record id="ke" model="formation.country">
+            <field name="name">Kenya</field>
+            <field name="name_ar">كينيا</field>
+
+        </record>
+        <record id="kg" model="formation.country">
+            <field name="name">Kirghizistan</field>
+            <field name="name_ar">قرغيزستان</field>
+
+        </record>
+        <record id="kh" model="formation.country">
+            <field name="name">Cambodge</field>
+            <field name="name_ar">كمبوديا</field>
+
+        </record>
+        <record id="ki" model="formation.country">
+            <field name="name">Kiribati</field>
+            <field name="name_ar">كيريباتي</field>
+
+        </record>
+        <record id="km" model="formation.country">
+            <field name="name">Comores</field>
+            <field name="name_ar">جزر القمر</field>
+
+        </record>
+
+        <record id="kp" model="formation.country">
+            <field name="name">Corée du Nord</field>
+            <field name="name_ar">كوريا الشمالية</field>
+
+      </record>
+      <record id="kr" model="formation.country">
+            <field name="name">Corée du Sud</field>
+            <field name="name_ar">كوريا الجنوبية</field>
+
+      </record>
+        <record id="kw" model="formation.country">
+            <field name="name">Koweït</field>
+            <field name="name_ar">الكويت</field>
+
+        </record>
+        <record id="ky" model="formation.country">
+            <field name="name">Îles Caïmans</field>
+            <field name="name_ar">جزر الكايمان</field>
+
+        </record>
+        <record id="kz" model="formation.country">
+            <field name="name">Kazakhstan</field>
+            <field name="name_ar">كازاخستان</field>
+
+        </record>
+        <record id="la" model="formation.country">
+            <field name="name">Laos</field>
+            <field name="name_ar">لاوس</field>
+
+        </record>
+        <record id="lb" model="formation.country">
+            <field name="name">Liban</field>
+            <field name="name_ar">لبنان</field>
+
+        </record>
+        <record id="lc" model="formation.country">
+            <field name="name">Sainte-Lucie</field>
+            <field name="name_ar">سانت لوسيا</field>
+
+        </record>
+        <record id="li" model="formation.country">
+            <field name="name">Liechtenstein</field>
+            <field name="name_ar">ليختنشتاين</field>
+
+        </record>
+        <record id="lk" model="formation.country">
+            <field name="name">Sri Lanka</field>
+            <field name="name_ar">سريلانكا</field>
+
+        </record>
+        <record id="lr" model="formation.country">
+            <field name="name">Liberia</field>
+            <field name="name_ar">ليبيريا</field>
+
+        </record>
+        <record id="ls" model="formation.country">
+            <field name="name">Lesotho</field>
+            <field name="name_ar">ليسوتو</field>
+
+        </record>
+        <record id="lt" model="formation.country">
+            <field name="name">Lituanie</field>
+            <field name="name_ar">ليثوانيا</field>
+
+        </record>
+        <record id="lu" model="formation.country">
+            <field name="name">Luxembourg</field>
+            <field name="name_ar">لوكسمبورغ</field>
+
+        </record>
+        <record id="lv" model="formation.country">
+            <field name="name">Lettonie</field>
+            <field name="name_ar">لاتفيا</field>
+
+        </record>
+        <record id="ly" model="formation.country">
+            <field name="name">Libye</field>
+            <field name="name_ar">ليبيا</field>
+
+        </record>
+        <record id="ma" model="formation.country">
+            <field name="name">Maroc</field>
+            <field name="name_ar">المغرب</field>
+
+        </record>
+        <record id="mc" model="formation.country">
+            <field name="name">Monaco</field>
+            <field name="name_ar">موناكو</field>
+
+        </record>
+        <record id="md" model="formation.country">
+            <field name="name">Moldavie</field>
+            <field name="name_ar">مولدوفا</field>
+
+        </record>
+        <record id="me" model="formation.country">
+            <field name="name">Montenegro</field>
+            <field name="name_ar">الجبل الأسود</field>
+
+        </record>
+        <record id="mf" model="formation.country">
+            <field name="name">Saint-Martin (partie française)</field>
+            <field name="name_ar">سانت مارتن (الجزء الفرنسي)</field>
+
+        </record>
+        <record id="mg" model="formation.country">
+            <field name="name">Madagascar</field>
+            <field name="name_ar">مدغشقر</field>
+
+        </record>
+        <record id="mh" model="formation.country">
+            <field name="name">Îles Marshall</field>
+            <field name="name_ar">جزر المارشال</field>
+
+        </record>
+
+        <record id="ml" model="formation.country">
+            <field name="name">Mali</field>
+            <field name="name_ar">مالي</field>
+
+        </record>
+        <record id="mm" model="formation.country">
+            <field name="name">Birmanie</field>
+            <field name="name_ar">ميانمار</field>
+
+        </record>
+        <record id="mn" model="formation.country">
+            <field name="name">Mongolie</field>
+            <field name="name_ar">منغوليا</field>
+
+        </record>
+        <record id="mo" model="formation.country">
+            <field name="name">Macao</field>
+            <field name="name_ar">ماكاو</field>
+
+        </record>
+        <record id="mp" model="formation.country">
+            <field name="name">Îles Mariannes Septentrionales</field>
+            <field name="name_ar">جزر ماريانا الشمالية</field>
+
+        </record>
+        <record id="mq" model="formation.country">
+            <field name="name">Martinique</field>
+            <field name="name_ar">مارتينيك</field>
+
+        </record>
+        <record id="mr" model="formation.country">
+            <field name="name">Mauritanie</field>
+            <field name="name_ar">موريتانيا</field>
+
+        </record>
+        <record id="ms" model="formation.country">
+            <field name="name">Montserrat</field>
+            <field name="name_ar">مونتسيرات</field>
+
+        </record>
+        <record id="mt" model="formation.country">
+            <field name="name">Malte</field>
+            <field name="name_ar">مالطة</field>
+
+        </record>
+        <record id="mu" model="formation.country">
+            <field name="name">Maurice</field>
+            <field name="name_ar">موريشيوس</field>
+
+        </record>
+        <record id="mv" model="formation.country">
+            <field name="name">Maldives</field>
+            <field name="name_ar">جزر المالديف</field>
+
+        </record>
+        <record id="mw" model="formation.country">
+            <field name="name">Malawi</field>
+            <field name="name_ar">مالاوي</field>
+
+        </record>
+        <record id="mx" model="formation.country">
+            <field name="name">Mexique</field>
+            <field name="name_ar">المكسيك</field>
+
+        </record>
+        <record id="my" model="formation.country">
+            <field name="name">Malaysie</field>
+            <field name="name_ar">ماليزيا</field>
+
+        </record>
+        <record id="mz" model="formation.country">
+            <field name="name">Mozambique</field>
+            <field name="name_ar">موزامبيق</field>
+
+        </record>
+        <record id="na" model="formation.country">
+            <field name="name">Namibie</field>
+            <field name="name_ar">ناميبيا</field>
+
+        </record>
+        <record id="nc" model="formation.country">
+            <field name="name">Nouvelle-Calédonie</field>
+            <field name="name_ar">كاليدونيا الجديدة</field>
+
+        </record>
+        <record id="ne" model="formation.country">
+            <field name="name">Niger</field>
+            <field name="name_ar">النيجر</field>
+
+        </record>
+        <record id="nf" model="formation.country">
+            <field name="name">Île Norfolk</field>
+            <field name="name_ar">جزيرة نورفولك</field>
+
+        </record>
+        <record id="ng" model="formation.country">
+            <field name="name">Nigeria</field>
+            <field name="name_ar">نيجيريا</field>
+
+        </record>
+        <record id="ni" model="formation.country">
+            <field name="name">Nicaragua</field>
+            <field name="name_ar">نيكاراجوا</field>
+
+        </record>
+        <record id="nl" model="formation.country">
+            <field name="name">Pays-Bas</field>
+            <field name="name_ar">هولندا</field>
+
+        </record>
+        <record id="no" model="formation.country">
+            <field name="name">Norvège</field>
+            <field name="name_ar">النرويج</field>
+
+        </record>
+        <record id="np" model="formation.country">
+            <field name="name">Népal</field>
+            <field name="name_ar">نيبال</field>
+
+        </record>
+        <record id="nr" model="formation.country">
+            <field name="name">Nauru</field>
+            <field name="name_ar">ناورو</field>
+
+        </record>
+        <record id="nu" model="formation.country">
+            <field name="name">Niué</field>
+            <field name="name_ar">نييوي</field>
+
+        </record>
+        <record id="nz" model="formation.country">
+            <field name="name">Nouvelle Zélande</field>
+            <field name="name_ar">نيوزيلندا</field>
+
+        </record>
+        <record id="om" model="formation.country">
+            <field name="name">Oman</field>
+            <field name="name_ar">سلطنة عمان</field>
+
+        </record>
+        <record id="pa" model="formation.country">
+            <field name="name">Panama</field>
+            <field name="name_ar">بنما</field>
+
+        </record>
+        <record id="pe" model="formation.country">
+            <field name="name">Pérou</field>
+            <field name="name_ar">بيرو</field>
+
+        </record>
+        <record id="pf" model="formation.country">
+            <field name="name">Polynésie française</field>
+            <field name="name_ar">بولينيزيا الفرنسية</field>
+
+        </record>
+        <record id="pg" model="formation.country">
+            <field name="name">Nouvelle-Guinée-Papouasie</field>
+            <field name="name_ar">بابوا غينيا الجديدة</field>
+
+        </record>
+        <record id="ph" model="formation.country">
+            <field name="name">Philippines</field>
+            <field name="name_ar">الفلبين</field>
+
+        </record>
+        <record id="pk" model="formation.country">
+            <field name="name">Pakistan</field>
+            <field name="name_ar">باكستان</field>
+
+        </record>
+        <record id="pl" model="formation.country">
+            <field name="name">Pologne</field>
+            <field name="name_ar">بولندا</field>
+
+        </record>
+        <record id="pm" model="formation.country">
+            <field name="name">Saint Pierre et Miquelon</field>
+            <field name="name_ar">سان بيار وميكلون</field>
+
+        </record>
+        <record id="pn" model="formation.country">
+            <field name="name">Îles Pitcairn</field>
+            <field name="name_ar">جزر بيتكيرن</field>
+
+        </record>
+        <record id="pr" model="formation.country">
+            <field name="name">Porto Rico</field>
+            <field name="name_ar">بورتوريكو</field>
+
+        </record>
+        <record id="ps" model="formation.country">
+            <field name="name">Palestine</field>
+            <field name="name_ar">الدولة الفلسطينية</field>
+
+        </record>
+        <record id="pt" model="formation.country">
+            <field name="name">Portugal</field>
+            <field name="name_ar">البرتغال</field>
+
+        </record>
+        <record id="pw" model="formation.country">
+            <field name="name">Palau</field>
+            <field name="name_ar">بالاو</field>
+
+        </record>
+        <record id="py" model="formation.country">
+            <field name="name">Paraguay</field>
+            <field name="name_ar">باراجواي</field>
+
+        </record>
+        <record id="qa" model="formation.country">
+            <field name="name">Qatar</field>
+            <field name="name_ar">قطر</field>
+
+        </record>
+        <record id="re" model="formation.country">
+            <field name="name">Réunion</field>
+            <field name="name_ar">ريونيون</field>
+
+        </record>
+        <record id="ro" model="formation.country">
+            <field name="name">Roumanie</field>
+            <field name="name_ar">رومانيا</field>
+
+        </record>
+        <record id="rs" model="formation.country">
+            <field name="name">Serbie</field>
+            <field name="name_ar">صربيا</field>
+
+        </record>
+        <record id="ru" model="formation.country">
+            <field name="name">Fédération de Russie</field>
+            <field name="name_ar">الاتحاد الروسي</field>
+
+        </record>
+        <record id="rw" model="formation.country">
+            <field name="name">Rwanda</field>
+            <field name="name_ar">رواندا</field>
+
+        </record>
+        <record id="sa" model="formation.country">
+            <field name="name">Arabie Saoudite</field>
+            <field name="name_ar">المملكة العربية السعودية</field>
+
+        </record>
+        <record id="sb" model="formation.country">
+            <field name="name">Îles Salomon</field>
+            <field name="name_ar">جزر سليمان</field>
+
+        </record>
+        <record id="sc" model="formation.country">
+            <field name="name">Seychelles</field>
+            <field name="name_ar">سيشيل</field>
+
+        </record>
+        <record id="sd" model="formation.country">
+            <field name="name">Soudan</field>
+            <field name="name_ar">السودان</field>
+
+        </record>
+        <record id="se" model="formation.country">
+            <field name="name">Suède</field>
+            <field name="name_ar">السويد</field>
+
+        </record>
+        <record id="sg" model="formation.country">
+            <field name="name">Singapour</field>
+            <field name="name_ar">سنغافورة</field>
+
+        </record>
+
+        <record id="si" model="formation.country">
+            <field name="name">Slovénie</field>
+            <field name="name_ar">سلوفينيا</field>
+
+        </record>
+
+        <record id="sk" model="formation.country">
+            <field name="name">Slovaquie</field>
+            <field name="name_ar">سلوفاكيا</field>
+
+        </record>
+        <record id="sl" model="formation.country">
+            <field name="name">Sierra Leone</field>
+            <field name="name_ar">سيراليون</field>
+
+        </record>
+        <record id="sm" model="formation.country">
+            <field name="name">San-Marin</field>
+            <field name="name_ar">سان مارينو</field>
+
+        </record>
+        <record id="sn" model="formation.country">
+            <field name="name">Sénégal</field>
+            <field name="name_ar">السنغال</field>
+
+        </record>
+        <record id="so" model="formation.country">
+            <field name="name">Somalie</field>
+            <field name="name_ar">الصومال</field>
+
+        </record>
+        <record id="sr" model="formation.country">
+            <field name="name">Suriname</field>
+            <field name="name_ar">سورينام</field>
+
+        </record>
+        <record id="ss" model="formation.country">
+            <field name="name">Sud Soudan</field>
+            <field name="name_ar">جنوب السودان</field>
+
+        </record>
+
+        <record id="sv" model="formation.country">
+            <field name="name">Salvador</field>
+            <field name="name_ar">السلفادور</field>
+
+        </record>
+
+        <record id="sy" model="formation.country">
+            <field name="name">Syria</field>
+            <field name="name_ar">سوريا</field>
+
+        </record>
+        <record id="sz" model="formation.country">
+            <field name="name">Swaziland</field>
+            <field name="name_ar">سوازيلاند</field>
+
+        </record>
+
+        <record id="td" model="formation.country">
+            <field name="name">Tchad</field>
+           <field name="name_ar">تشاد</field>
+        </record>
+        <record id="tf" model="formation.country">
+            <field name="name">Terres Australes Françaises</field>
+           <field name="name_ar">الأقاليم الشمالية الفرنسية</field>
+
+        </record>
+        <record id="tg" model="formation.country">
+            <field name="name">Togo</field>
+           <field name="name_ar">توغو</field>
+
+        </record>
+        <record id="th" model="formation.country">
+            <field name="name">Thaïlande</field>
+           <field name="name_ar">تايلاند</field>
+
+        </record>
+        <record id="tj" model="formation.country">
+            <field name="name">Tajikistan</field>
+           <field name="name_ar">طاجكستان</field>
+
+        </record>
+        <record id="tk" model="formation.country">
+            <field name="name">Tokelau</field>
+            <field name="name_ar">توكلو</field>
+
+        </record>
+        <record id="tm" model="formation.country">
+            <field name="name">Turkménistan</field>
+            <field name="name_ar">توركمنستان</field>
+
+        </record>
+
+        <record id="to" model="formation.country">
+            <field name="name">Tonga</field>
+            <field name="name_ar">تونجا</field>
+        </record>
+
+        <record id="tr" model="formation.country">
+            <field name="name">Turquie</field>
+            <field name="name_ar">تركيا</field>
+
+        </record>
+
+        <record id="tv" model="formation.country">
+            <field name="name">Tuvalu</field>
+            <field name="name_ar">توفالو</field>
+
+        </record>
+        <record id="tw" model="formation.country">
+            <field name="name">Taïwan</field>
+            <field name="name_ar">تايوان</field>
+
+        </record>
+        <record id="tz" model="formation.country">
+            <field name="name">Tanzanie</field>
+            <field name="name_ar">تنزانيا</field>
+
+        </record>
+        <record id="ua" model="formation.country">
+            <field name="name">Ukraine</field>
+            <field name="name_ar">أوكرانيا</field>
+
+        </record>
+        <record id="ug" model="formation.country">
+            <field name="name">Ouganda</field>
+            <field name="name_ar">أوغندا</field>
+
+        </record>
+        <record id="uk" model="formation.country">
+            <field name="name">Royaume-Uni</field>
+            <field name="name_ar">المملكة المتحدة</field>
+
+        </record>
+
+        <record id="us" model="formation.country">
+            <field name="name">États Unis</field>
+            <field name="name_ar">الولايات المتحدة</field>
+
+        </record>
+        <record id="uy" model="formation.country">
+            <field name="name">Uruguay</field>
+            <field name="name_ar">أوروغواي</field>
+
+        </record>
+        <record id="uz" model="formation.country">
+            <field name="name">Ouzbékistan</field>
+            <field name="name_ar">أوزبكستان</field>
+
+        </record>
+        <record id="va" model="formation.country">
+            <field name="name">Saint-Siège (État du Vatican)</field>
+            <field name="name_ar">الكرسي الرسولي (ولاية مدينة الفاتيكان)</field>
+
+        </record>
+
+        <record id="ve" model="formation.country">
+            <field name="name">Venezuela</field>
+            <field name="name_ar">فينزويلا</field>
+
+        </record>
+        <record id="vg" model="formation.country">
+            <field name="name">Îles Vierges (Britaniques)</field>
+            <field name="name_ar">جزر فيرجين (البريطانية)</field>
+
+        </record>
+        <record id="vi" model="formation.country">
+            <field name="name">Îles Vierges (USA)</field>
+            <field name="name_ar">جزر فيرجين (الولايات المتحدة اﻻمريكية)</field>
+
+        </record>
+        <record id="vn" model="formation.country">
+            <field name="name">Vietnam</field>
+            <field name="name_ar">فيتنام</field>
+
+        </record>
+
+
+        <record id="ws" model="formation.country">
+            <field name="name">Samoa</field>
+            <field name="name_ar">ساموا</field>
+
+        </record>
+        <record id="ye" model="formation.country">
+            <field name="name">Yémen</field>
+            <field name="name_ar">اليمن</field>
+
+        </record>
+        <record id="yt" model="formation.country">
+            <field name="name">Mayotte</field>
+            <field name="name_ar">مايوت</field>
+
+        </record>
+        <record id="za" model="formation.country">
+            <field name="name">Afrique du sud</field>
+            <field name="name_ar">جنوب إفريقيا</field>
+
+        </record>
+        <record id="zm" model="formation.country">
+            <field name="name">Zambie</field>
+            <field name="name_ar">زامبيا</field>
+
+        </record>
+        <record id="zw" model="formation.country">
+            <field name="name">Zimbabwe</field>
+            <field name="name_ar">زيمبابوي</field>
+
+        </record>
+        <record id="xk" model="formation.country">
+            <field name="name">Kosovo</field>
+            <field name="name_ar">كوسوفو</field>
+        </record>
+
+
+
+
+
+
+
+
+
+
+
+</data>
+</odoo>
